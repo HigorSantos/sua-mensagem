@@ -1,224 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
+
+  <!-- Coisas básicas da página
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>- Preciso de nome :) -</title>
+  <meta name="description" content="Imagens fantásticas com suas frases!">
+  <meta name="author" content="Higor Santos">
+  <title>Preciso de nome :)</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Space+Mono|Caveat|Oswald|Poiret+One" rel="stylesheet">
+  <!-- Definição para mobile
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Fontes fantásticas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono|Caveat|Oswald|Poiret+One|Bungee+Shade" rel="stylesheet">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/cv.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="eleven columns">
+        <h3>(Olá, preciso de nome)</h3>
+        <h4>Vamos mandar aquela direta pra pessoa?</h4>
+        <h6>Mas, sem textão, né?!</h6>
+          
+        <textarea id="texto" placeholder="Escreve alguma coisa aqui!"></textarea>
+
+        <div class="row">
+          <h6>Aqui da para mudar uns detalhes</h6>
+          <input type="radio" name="fonte" id="space_mono" value="space_mono" checked="checked" /><label for="space_mono" class="space_mono">Space Mono</label>
+
+          <input type="radio" name="fonte" id="caveat" value="caveat"/><label for="caveat" class="caveat">Caveat</label>
+          <input type="radio" name="fonte" id="poiret_one" value="poiret_one"/><label for="poiret_one" class="poiret_one">Poiret One</label>
+
+          <input type="radio" name="fonte" id="oswald" value="oswald"/><label for="oswald" class="oswald">Oswald</label>
+
+          <input type="radio" name="fonte" id="bungee_shade" value="bungee_shade"/><label for="bungee_shade" class="bungee_shade">Bungee Shade</label>
+        </div>
+          
+        <div class="row">
+          <input type="radio" name="forca" id="forca_normal" value="forca_normal" checked="checked" /><label for="forca_normal" class="forca_normal">Normal</label>
+          <input type="radio" name="forca" id="bem_forte" value="bem_forte" /><label for="bem_forte" class="bem_forte">Forte</label>
+        </div>
+
+        <div class="row">
+          <input type="radio" name="escrita" id="escrita_normal" value="escrita_normal" /><label for="escrita_normal" class="escrita_normal">Como escrito</label>
+          <input type="radio" name="escrita" id="escrita_maiuscula" value="escrita_maiuscula" checked="checked"  /><label for="escrita_maiuscula" class="escrita_maiuscula">MAIÚSCULAS</label>
+        </div>
+        
+        <div class="row">
+          <h6>E esse botão lindo, gera sua imagem!</h6>
+          <button class="button-primary" id="btn_gera_imagem">Gerar imagem fenomenal!</button>
+        </div>
+
+        <div class="row">
+          <div id="bloco" class="space_mono forca_normal escrita_maiuscula">
+            <div id="onde"></div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <em id="comentario">Sua imagem linda é essa. Se tiver no celular, só tocar (e segurar) que aparece pra compartilhar! :)</em>
+          
+          <img id="imagem_final"/>
+        </div>
+        
+        <div class="row">
+          <div class="info">
+            <p>Quem fez? Eu, Higor Santos do <a href="http://hinfos.com">Hinfos.com</a>.</p>
+            <p>O código disso aqui, você consegue no <a href="https://github.com/HigorSantos/sua-mensagem">meu GitHub</a>. Pode ir lá, uso "The MIT License".</p>
+            <p style="text-align: center">Alpha 0.2</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="html2canvas.js"></script>
-  <script src="cv.js"></script>
-
-  <script>
-
-  function vai(){
-    var bloco = document.getElementById("bloco");
-    var onde = document.getElementById("onde");
-    var txt = document.getElementById("texto");
-
-    bloco.style.display = "table-cell";
-
-    /*Limpa o que existe e coloca novo texto*/
-    onde.innerHTML = "";
-    onde.innerHTML = txt.value;
-    
-    /*Deixa o texto do tamanho correto*/
-    scaleText();
-
-    /* Gera canvas pra pegar imagem */
-    html2canvas(bloco, {
-      background: '#fff',
-      onrendered: function(canvas) {
-        canvas.id = "imagem";
-
-        document.getElementById("imagem_final").src = canvas.toDataURL("image/png");
-        document.getElementById("imagem_final").style.display = "block";
-        //document.body.appendChild(canvas);
-      }
-    });
-    document.getElementById("comentario").style.display="block";
-    bloco.style.display = "none";
-
-  }
-
-  </script>
-
-  <style type="text/css">
-    canvas{
-      margin:20px auto;
-    }
-
-    input, label, textarea, h1, h3, h5, h4{
-      font-size: 15px;
-      font-family: 'Space Mono','Segoe UI', sans-serif;
-    }
-    h1{
-      font-size: 200%;
-    }
-    h3, h5{
-      margin:0;
-      font-size: 110%;
-    }
-  
-    h4{
-      margin:15px 0 5px 0;
-    }
-
-    textarea{
-      margin-top: 10px;
-      width: 300px;
-      height: 100px;
-    }
-    #comentario{
-      display: none;
-    }
-    #bloco{
-      margin-top: 10px;
-      height: 400px;
-
-      width:95%;
-     /* max-width: 400px;*/
-
-      display:none;
-      vertical-align:middle;
-
-      /*font-family: 'Space Mono','Caveat', 'Poiret+One','Oswald', cursive;*/
-      /*background: #ccc;*/
-      font-size: 100px;
-    }
-    #onde{
-      /*font-size: 3vw ;*/
-
-      text-align: center;
-      /*background: #eee;*/
-      padding: 10px 10px;
-      /*font-size: 2.5vw;*/
-    }
-  
-    #imagem_final{
-      display: none;
-
-      width: 95%;
-      height: auto;
-    }
-
-    .space_mono{
-      font-family: 'Space Mono'
-    }
-    .caveat{
-      font-family: 'Caveat'
-    }
-    .poiret_one{
-      font-family: 'Poiret One'
-    }
-    .oswald{
-      font-family: 'Oswald'
-    }
-    .forca_normal{
-      font-weight: 100;
-    }
-    .bem_forte{
-      font-weight: 800;
-    }
-    .escrita_normal{
-      text-transform: none;
-    }
-    .escrita_maiuscula{
-      text-transform: uppercase;
-    }
-
-    button{
-      padding: 4px 10px;
-    }
-  </style>
-</head>
-<body>
-  <h1>(Olá, preciso de nome)</h1>
-  <h3>Vamos mandar aquela direta pra pessoa?</h3>
-  <h5>Mas, sem textão, né?!</h5>
-  <textarea id="texto" placeholder="Escreve alguma coisa aqui!"></textarea><br/>
-
-  <h4>Aqui da para mudar uns detalhes</h4>
-  <div>
-    <input type="radio" name="fonte" id="space_mono" value="space_mono" checked="checked" /><label for="space_mono" class="space_mono">Space Mono</label>
-    <input type="radio" name="fonte" id="caveat" value="caveat"/><label for="caveat" class="caveat">Caveat</label>
-    <input type="radio" name="fonte" id="poiret_one" value="poiret_one"/><label for="poiret_one" class="poiret_one">Poiret One</label>
-    <input type="radio" name="fonte" id="oswald" value="oswald"/><label for="oswald" class="oswald">Oswald</label><br/>
-  </div>
-  
-  <div>
-    <input type="radio" name="forca" id="forca_normal" value="forca_normal" checked="checked" /><label for="forca_normal" class="forca_normal">Normal</label>
-    <input type="radio" name="forca" id="bem_forte" value="bem_forte" /><label for="bem_forte" class="bem_forte">Forte</label>
-  </div>
-
-  <div>
-    <input type="radio" name="escrita" id="escrita_normal" value="escrita_normal" /><label for="escrita_normal" class="escrita_normal">Como escrito</label>
-    <input type="radio" name="escrita" id="escrita_maiuscula" value="escrita_maiuscula" checked="checked"  /><label for="escrita_maiuscula" class="escrita_maiuscula">MAIÚSCULAS</label>
-  </div>
-  
-  <h4>E esse botão lindo, gera sua imagem!</h4>
-  <button onclick="vai()">Gerar imagem fenomenal!</button>
-  
-  <div id="bloco" class="space_mono forca_normal escrita_maiuscula"><div id="onde"></div></div>
-<br/><br/><br/>
-<em id="comentario">Sua imagem linda é essa. Se tiver no celular, só tocar (e segurar) que aparece pra compartilhar! :)</em>
-  <img id="imagem_final"/>
-<p>Alpha 0.111</p>
-<script>
-$( function(){
-    var fonte = "space_mono";
-    var forca = "forca_normal"; 
-    var escrita = "escrita_maiuscula";
-
-    /* Limpa imagem se houver alteração */
-    $("#imagem_final").attr("src","");
-
-    $( "input" ).on( "click", function() {
-
-      if ($(this).attr("name")=='fonte'){
-        fonte = $(this).val();
-
-        $("#bloco").removeClass();
-
-        $("#bloco").addClass(fonte).addClass(forca).addClass(escrita);
-      }
-
-      if ($(this).attr("name")=='forca'){
-        forca = $(this).val();
-
-        $("#bloco").removeClass();
-        $("#bloco").addClass(forca).addClass(fonte).addClass(escrita);
-      }
-
-      if ($(this).attr("name")=='escrita'){
-        escrita = $(this).val();
-
-        $("#bloco").removeClass();
-        $("#bloco").addClass(escrita).addClass(forca).addClass(fonte);
-      }
-
-      //scaleText();
-    });
-
-    $('textarea').on( 'input', function(){
-      var inputStr = $(this).val();
-
-      if( inputStr.length > 50 ){
-        inputStr = inputStr.slice(0, 50);
-      }
-      $(this).val( inputStr );
-    });
-});
-// https://fonts.google.com
-// bigassmessage.com
-// https://coderwall.com/p/4qpmfw/sharing-html5-canvas-images-to-directly-to-facebook
-// http://howtocenterincss.com/
-</script>
-
+  <script src="js/html2canvas.js"></script>
+  <script src="js/cv.js"></script>
 
 </body>
-
-
 </html>

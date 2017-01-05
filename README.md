@@ -20,6 +20,7 @@ http://howtocenterincss.com/
 
 http://www.sabinanore.com/design/html-special-symbols/
 
-## License
 
-All parts of Skeleton are free to use and abuse under the [open-source MIT license](https://github.com/HigorSantos/sua-mensagem/blob/master/LICENSE.md).
+## Licença
+
+Sinta-se a vontande para usar da forma que desejar esse projeto, ele está disponível sob a [lincença MIT](https://github.com/HigorSantos/sua-mensagem/blob/master/LICENSE.md) (em inglês).

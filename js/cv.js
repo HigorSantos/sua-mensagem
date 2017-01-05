@@ -1,16 +1,23 @@
-$(function(){
-    var fonte = "space_mono";
-    var forca = "forca_normal"; 
-    var escrita = "escrita_maiuscula";
+/**
+ * v0.3
+ */
+(function(){
+"use strict";
 
-	var fntSz = 100;
+    var 
+    	classe_fonte = "space_mono" ,
+    	classe_forca = "forca_normal" ,
+    	classe_escrita = "escrita_maiuscula" ,
+    	classe_destaque_texto = "inverte" ,
+    	canvas_imagem = $("<canvas/>") ,
+    	nome_arquivo = "imagem_fantastica.png" ,
+		fntSz = 100
 
 	/* Limpa imagem se houver alteração */
     $("#imagem_final").attr("src","");
 
-
     /* 
-	*	Altera tamanho do texto sempre que necessário
+	*	Altera tamanho do texto sempre que necessáro
     */
 	function scaleText(bloco_externo, bloco_interno){
 
@@ -70,7 +77,38 @@ $(function(){
 
 		/*Limpa o que existe e coloca novo texto*/
 		onde.text("");
-		onde.text(txt.val());
+
+		var texto = txt.val();
+
+		//Faz algumas substituições de texto para html
+		texto = texto.replace(/\n/g,'<br/>');
+		
+		/*Destaca o texto entre cerquilha*/
+		var primeira_ocor_cerquilha = texto.indexOf("#");
+		var ultima_ocor_cerquilha = texto.lastIndexOf("#");
+
+		//Verifica se sendo aberto e fechado
+		if (primeira_ocor_cerquilha != ultima_ocor_cerquilha){
+			//Inicia o texto e abre tag span
+			var texto_auxiliar = texto.substring(0, primeira_ocor_cerquilha);
+			texto_auxiliar += '<span class="' + classe_destaque_texto + '">';
+
+			//Coloca o que estava entre as # e fecha tag span
+			texto_auxiliar += texto.substring(primeira_ocor_cerquilha+1,ultima_ocor_cerquilha);
+			texto_auxiliar += '</span>';
+			texto_auxiliar += texto.substring(ultima_ocor_cerquilha+1,texto.length);
+
+			//Substitui texto com o editado
+			texto = texto_auxiliar;
+		}
+		
+		//Aqui, coloco algumas coisas legais no texto
+		texto = texto.replace(/<3/g,'&#9829;');
+		texto = texto.replace(/<\/3/g,'&#128148;').replace(/<,3/g,'&#128148;');
+		texto = texto.replace(/:\)/g,'&#9786;');
+		texto = texto.replace(/:\(/g,'&#9785;');
+
+		onde.html(texto);
 
 		/*Deixa o texto do tamanho correto*/
 		if (scaleText(bloco, onde)){ //Se der tudo certo, gera a imagem.
@@ -78,17 +116,17 @@ $(function(){
 			/* Gera canvas pra pegar imagem */
 			html2canvas(bloco, {
 			  background: '#fff',
-			  onrendered: function(canvas) {
-			    canvas.id = "imagem";
+			  onrendered: function(canvas_imagem) {
+			    canvas_imagem.id = "cv_imagem2";
 
-			    $("#imagem_final").attr("src", canvas.toDataURL("image/jpeg",1.0) );
+			    $("#imagem_final").attr("src", canvas_imagem.toDataURL("image/png",1.0) );
 			    $("#imagem_final").css("display", "block");
-			    //document.body.appendChild(canvas);
+			    //document.body.appendChild(canvas_imagem);
 			  }
 			});
 		}
 
-		$("#comentario").css("display", "block");
+		$("#comentario").fadeIn();
 		
 		bloco.css("display","none");
 		
@@ -103,27 +141,27 @@ $(function(){
 
     	/* Trada alteração na fonte */
 		if ($(this).attr("name")=='fonte'){
-		    fonte = $(this).val();
+		    classe_fonte = $(this).val();
 
 		    $("#bloco").removeClass();
 
-		    $("#bloco").addClass(fonte).addClass(forca).addClass(escrita);
+		    $("#bloco").addClass(classe_fonte).addClass(classe_forca).addClass(classe_escrita);
 		 }
 
 		/* Trata seleção do peso da fonte */
 		if ($(this).attr("name")=='forca'){
-			forca = $(this).val();
+			classe_forca = $(this).val();
 
 			$("#bloco").removeClass();
-			$("#bloco").addClass(forca).addClass(fonte).addClass(escrita);
+			$("#bloco").addClass(classe_forca).addClass(classe_fonte).addClass(classe_escrita);
 		}
 
 		/* Trata alteração na forma como o texto é exibido */
 		if ($(this).attr("name")=='escrita'){
-			escrita = $(this).val();
+			classe_escrita = $(this).val();
 
 			$("#bloco").removeClass();
-			$("#bloco").addClass(escrita).addClass(forca).addClass(fonte);
+			$("#bloco").addClass(classe_escrita).addClass(classe_forca).addClass(classe_fonte);
 		}
 
     });
@@ -139,4 +177,36 @@ $(function(){
       }
       $(this).val( inputStr );
     });
-});
+
+    /*
+    * Exibe coisas legais!
+     */
+    var esconde_coisas_legais = false;
+    $( "#det_coisas_legais" ).on( "click", function() {
+
+    	if (esconde_coisas_legais){
+    		$("#coisas_legais").fadeOut();
+    		$(this).text("Ah, olha o que da pra fazer de legal!");
+    	}else{
+    		$("#coisas_legais").fadeIn();
+    		$(this).text("Bacana né? [clique aqui para esconder]");
+    	}
+
+    	esconde_coisas_legais = !esconde_coisas_legais;
+    });
+
+    /*
+    * Salva a imagem em png
+     */
+    /*$( "#salva_imagem" ).on( "click", function() {
+
+    	if (canvas_imagem){
+	    	canvas_imagem.toBlobHD(function(blob) {
+				saveAs(
+						blob,
+						nome_arquivo
+				);
+			}, "image/png");
+		}
+    });*/
+}(self));

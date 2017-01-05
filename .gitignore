@@ -2,3 +2,6 @@ p.html
 html2canvas.svg.js
 *.zip
 teste.*
+js/canvas-toBlob.js
+js/Blob.js
+js/FileSaver.min.js

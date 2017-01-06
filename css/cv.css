@@ -6,12 +6,13 @@
 * #000 Preto
 * #fff Branco
 * #ecf0f1 Clouds para backgound
+* #95a5a6 cor da marca
 */
 canvas{
   margin:20px auto;
 }
 
-input, label, textarea, p,em{
+input, label, textarea, p, em{
   font-size: 1em;
   font-family: 'Space Mono','Segoe UI', sans-serif;
 }

@@ -11,7 +11,10 @@
     	classe_destaque_texto = "inverte" ,
     	canvas_imagem = $("<canvas/>") ,
     	nome_arquivo = "imagem_fantastica.png" ,
-		fntSz = 100
+		fntSz = 100,
+		bloco_marca = $("<span/>")
+						.attr("id","marca")
+						.text("bit.ly/suamensagem");
 
 	/* Limpa imagem se houver alteração */
     $("#imagem_final").attr("src","");
@@ -73,6 +76,10 @@
 		var onde = $("#onde");
 		var txt = $("#texto");
 
+		if (txt.val()==""){
+			return;
+		}
+
 		bloco.css("display","table-cell");
 
 		/*Limpa o que existe e coloca novo texto*/
@@ -113,6 +120,9 @@
 		/*Deixa o texto do tamanho correto*/
 		if (scaleText(bloco, onde)){ //Se der tudo certo, gera a imagem.
 
+			//Adiciona marca
+			bloco.append(bloco_marca);
+
 			/* Gera canvas pra pegar imagem */
 			html2canvas(bloco, {
 			  background: '#fff',
@@ -128,7 +138,7 @@
 
 		$("#comentario").fadeIn();
 		
-		bloco.css("display","none");
+		bloco.css("display","none");/*debug*/
 		
 	});//FIM:vai
 

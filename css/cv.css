@@ -26,6 +26,15 @@ h3, h4, h6{
   font-family: 'Space Mono'
 }
 
+h3{
+  font-size: 5vw;
+  white-space: nowrap;
+}
+h4{
+  margin-top: 0;
+  font-size: 3.5vw;
+}
+
 textarea{
   margin-top: 10px;
   width: 300px;
@@ -55,14 +64,18 @@ div.row{
   margin-top: 10px;
   height: 500px;
   /*width:95%;*/
-  display:none;
+  display:none;/*debug*/
   vertical-align:middle;
   font-size: 100px;
+  position: relative;
+  /*debug*//*background: #16a085;*/
 }
 #onde{
   text-align: center;
   padding: 10px 10px;
   line-height: 1.8;
+  /*debug*//*background: #1abc9c;*/
+
 }
 .inverte{
   background-color: #000;
@@ -85,6 +98,17 @@ div.row{
 #coisas_legais p{
   margin: 0;
 }
+
+#marca{
+  color: #95a5a6;
+  font-size: 1.2rem;
+  font-weight: 100;
+  position: absolute;
+  text-transform: none;
+  bottom: 0;
+  right: 0;
+}
+
 /* Larger than mobile */
 @media (min-width: 500px) {
   #bloco{

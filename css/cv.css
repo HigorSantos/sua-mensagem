@@ -1,12 +1,12 @@
 /*
-* v0.342
+* v0.35
 *------
 * # Cores usadas #
 * #eee Cinza para linhas
 * #000 Preto
 * #fff Branco
 * #ecf0f1 Clouds para backgound
-* #95a5a6 cor da marca
+* #7f8c8d cor da marca
 */
 canvas{
   margin:20px auto;
@@ -69,26 +69,30 @@ div.row{
   vertical-align:middle;
   font-size: 100px;
   position: absolute;
-  /*debug*//*background: #16a085;*/
+  overflow: hidden;
+  /*debug*//* background: #16a085;*/
 }
 
 #bloco a{
   display: block;
-  height: 100%;
-  width: 100%;
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
   text-decoration: none;
   color: inherit;
   text-align:center;
+  margin: 10px;
+  margin-top: -10px;
+
 }
 
 
 #onde{
   text-align: center;
   position: relative;
-  padding: 10px 10px;
+  
   line-height: 1.8;
   /*debug*//*background: #1abc9c;*/
-
+  z-index: 1;
 }
 .inverte{
   background-color: #000;
@@ -114,13 +118,14 @@ div.row{
 }
 
 #marca{
-  color: #95a5a6;
-  font-size: 1.2rem;
+  color: ##7f8c8d;
+  font-size: 1.3rem;
   font-weight: 100;
   position: absolute;
   text-transform: none;
   bottom: 0;
   right: 0;
+  z-index: 2;
 }
 
 #contador{
@@ -133,6 +138,11 @@ div.row{
   font-size: .7em; 
 }
 
+.img_ex{
+  width: 128px;
+  height: auto;
+  display: inline;
+}
 
 /*Estiliza as opções de texto*/
 .nowrap{

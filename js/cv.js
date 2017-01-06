@@ -128,7 +128,7 @@
 			    canvas_imagem.id = "cv_imagem2";
 
 			    $("#imagem_final").attr("src", canvas_imagem.toDataURL("image/png",1.0) );
-			    $("#imagem_final").css("display", "block");
+			    $("#imagem_final").css("display", "block");/*debug*/
 			    
 				$("#comentario").fadeIn();
 			  }
@@ -223,4 +223,21 @@
 			}, "image/png");
 		}
     });*/
+
+    /*
+    * Carrega as imagens de exemplo   
+    * Ta aqui para o html não esperar
+    * o download delas e não carregar o que importa 
+     */
+    (function(){
+    	//O nome das imgens ta como ex*.png
+    	//* é um número
+    	var caminho = "img/";
+    	var qtd_img = 4;
+    	var i = 0;
+
+    	for (i=1; i <= qtd_img; i++){
+    		$(".img_ex"+i).attr("src",caminho + "ex" + i + ".png");
+    	}
+    })();
 }(self));

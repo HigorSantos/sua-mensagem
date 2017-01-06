@@ -1,5 +1,5 @@
 /*
-* v0.3
+* v0.342
 *------
 * # Cores usadas #
 * #eee Cinza para linhas
@@ -64,15 +64,27 @@ div.row{
 #bloco{
   margin-top: 10px;
   height: 500px;
-  /*width:95%;*/
+  width: 500px;
   display:none;/*debug*/
   vertical-align:middle;
   font-size: 100px;
-  position: relative;
+  position: absolute;
   /*debug*//*background: #16a085;*/
 }
+
+#bloco a{
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  text-align:center;
+}
+
+
 #onde{
   text-align: center;
+  position: relative;
   padding: 10px 10px;
   line-height: 1.8;
   /*debug*//*background: #1abc9c;*/
@@ -84,8 +96,9 @@ div.row{
 }
 #imagem_final{
   display: none;
+  width: 98%;
   max-width: 500px;
-  height: 500px;
+  height: auto;
 }
 
 #coisas_legais{
@@ -110,19 +123,16 @@ div.row{
   right: 0;
 }
 
-/* Larger than mobile */
-@media (min-width: 500px) {
-  #bloco{
-    height: 500px;
-    width: 500px;
-  }
-
-  #imagem_final{
-    width: auto;
-    /*max-width: 500px;*/
-    height: 500px;
-  }
+#contador{
+  position: absolute;
+  text-transform: none;
+  bottom: 0;
+  border-radius: 4px;
+  background: #ecf0f1;
+  padding: .4rem;
+  font-size: .7em; 
 }
+
 
 /*Estiliza as opções de texto*/
 .nowrap{
@@ -161,8 +171,3 @@ div.row{
 .escrita_maiuscula{
   text-transform: uppercase;
 }
-
-
-/*
-* A partir daqui, são estilos para exibir coisas na mensagem
- */

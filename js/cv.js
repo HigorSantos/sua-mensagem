@@ -1,5 +1,5 @@
 /**
- * v0.3
+ * v0.341
  */
 (function(){
 "use strict";
@@ -11,10 +11,14 @@
     	classe_destaque_texto = "inverte" ,
     	canvas_imagem = $("<canvas/>") ,
     	nome_arquivo = "imagem_fantastica.png" ,
-		fntSz = 100;
+		fntSz = 100,
+		mm_contador = 50,
+		span_contator = $("#contador");
 
-	/* Limpa imagem se houver alteração */
+	/* Inicia as coisas */
     $("#imagem_final").attr("src","");
+
+    span_contator.text("0/" + mm_contador);
 
     /* 
 	*	Altera tamanho do texto sempre que necessáro
@@ -125,16 +129,14 @@
 
 			    $("#imagem_final").attr("src", canvas_imagem.toDataURL("image/png",1.0) );
 			    $("#imagem_final").css("display", "block");
-			    //document.body.appendChild(canvas_imagem);
+			    
+				$("#comentario").fadeIn();
 			  }
 			});
-		}
+		}//FIM:scale
 
-		$("#comentario").fadeIn();
-		
 		bloco.css("display","none");/*debug*/
-		
-	});//FIM:vai
+	});//FIM:btn_gera_imagem(click)
 
 	/* 
 	* Trata os input.
@@ -175,10 +177,19 @@
     $('textarea').on( 'input', function(){
       var inputStr = $(this).val();
 
-      if( inputStr.length > 50 ){
-        inputStr = inputStr.slice(0, 50);
+      if( inputStr.length > mm_contador ){
+        inputStr = inputStr.slice(0, mm_contador);
+        $(this).val( inputStr );
+
+        span_contator.text("Sem textão!!")
+        			.fadeOut(2000,function(){
+        				span_contator.text(inputStr.length + "/" + mm_contador);
+        			}).fadeIn();
+      }else{
+      	span_contator.text(inputStr.length + "/" + mm_contador);
       }
-      $(this).val( inputStr );
+
+      
     });
 
     /*

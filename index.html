@@ -30,11 +30,18 @@
   <div class="container">
     <div class="row">
       <div class="eleven columns">
+        <!--
+        Topo do site
+        -->
         <h3>Sua Mensagem Fantástica</h3>
         <h4>Seja criativo e nós geramos sua imagem lindona.</h4>
         
         <h6>Mas, sem textão, né?! (<a href="#" id="det_coisas_legais">Ah, olha o que da pra fazer de legal!</a>)</h6>
         
+        <!--
+        Informações para guiar o usuários
+        com algumas estilizações.
+        -->
         <div id="coisas_legais" class="u-full-width">
           <p>&lt;3 vira <span style="font-size:1.4em">&#9829;</span></p>
           <p>&lt;,3 se torna &#128148;</p>
@@ -42,9 +49,18 @@
           <p>:( &#9785;</p>
           <p>E a gente #<span class="inverte">destaca o texto</span># entre cerquilha!</p>
         </div>
-
-        <textarea id="texto" placeholder="Escreve alguma coisa aqui!"></textarea>
-
+        
+        <!--
+        Caixa de texto
+        -->
+        <div class="row" style="position: relative;">
+          <textarea id="texto" class="u-cf" placeholder="Escreve alguma coisa aqui!"></textarea>
+          <div id="contador" class="space_mono u-cf"></div>
+        </div>
+        
+        <!--
+        Estiliza o texto
+        -->
         <div class="row opc">
           <h6>Aqui da para mudar alguns detalhes</h6>
 
@@ -71,18 +87,30 @@
           <span class="nowrap"><input type="radio" name="escrita" id="escrita_maiuscula" value="escrita_maiuscula" checked="checked"  /><label for="escrita_maiuscula" class="escrita_maiuscula">MAIÚSCULAS</label></span>
         </div>
         
+        <!--
+        Botão de ação para gerar imagem
+        -->
         <div class="row">
           <h6>E esse botão lindo, gera sua imagem!</h6>
           <button class="button-primary" id="btn_gera_imagem">Gerar imagem fenomenal!</button>
         </div>
 
-        <div class="row">
+        <!--
+        Blocos usados para gerar o texto estilizado
+        que posteriormente gerará a imagem.
+        Tudo isso por padrão fica escondido!
+        -->
+        <div class="row" >
           <div id="bloco" class="space_mono forca_normal escrita_maiuscula">
-            <div id="onde"></div>
+            <a href="#"><span id="onde"></span></a>
             <span id="marca">bit.ly/suamensagem</span>
           </div>
         </div>
-        
+
+        <!--
+        Onde será exibida a imagem.
+        Só aparece quando consegue gerar a imagem
+        -->
         <div class="row">
           <img id="imagem_final"/>
 
@@ -91,6 +119,9 @@
           </div>
         </div>
         
+        <!--
+        Infomações no rodapé do site
+        -->
         <div class="row">
           <div class="info">
             <p>Quem fez? Eu, Higor Santos do <a href="http://hinfos.com">Hinfos.com</a>.</p>
@@ -99,7 +130,7 @@
             
             <p style="margin:1rem 0"><em>Oh, caso você esteja usando um navegador antigo e alguma coisa saia fora do controle, peço perdão pelo vacilo!</em></p>
             
-            <p style="text-align: center">Alpha 0.33</p>
+            <p style="text-align: center">Alpha 0.342</p>
           </div>
         </div>
       </div>

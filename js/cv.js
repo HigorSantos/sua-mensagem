@@ -1,22 +1,52 @@
 /**
- * v0.341
+ * v0.36
  */
 (function(){
 "use strict";
+	
+	/*
+	* Define o modo de execução
+	 */
+	var modo_debug = false;
+
+	var iniciador = {
+		fonte:"space_mono", 
+		forca:"forca_normal", 
+		escrita:"escrita_maiuscula"
+	};
+
+	if (modo_debug){
+		iniciador = {
+			fonte:"poiret_one", 
+			forca:"forca_normal", 
+			escrita:"escrita_maiuscula"
+		};
+	}
 
     var 
-    	classe_fonte = "space_mono" ,
-    	classe_forca = "forca_normal" ,
-    	classe_escrita = "escrita_maiuscula" ,
+    	classe_fonte = iniciador.fonte,
+    	classe_forca = iniciador.forca ,
+    	classe_escrita = iniciador.escrita ,
     	classe_destaque_texto = "inverte" ,
     	canvas_imagem = $("<canvas/>") ,
     	nome_arquivo = "imagem_fantastica.png" ,
-		fntSz = 100,
-		mm_contador = 50,
-		span_contator = $("#contador");
+		fntSz = 120,
+		mm_contador = 70,
+		margin_padrao = 10,
+		margin_diferenca_maior = -35,
+		span_contator = $("#contador"),
+		span_carregando = $("<span/>").append($("<em/>").text("Carregando...")).css("display","none");
 
-	/* Inicia as coisas */
+	/* Inicia os elementos */
     $("#imagem_final").attr("src","");
+    $("#bloco").removeClass();
+    $("#bloco").addClass(classe_fonte).addClass(classe_forca).addClass(classe_escrita);
+	$("#bloco").append(span_carregando);
+
+    //Seleciona os radio box, de acordo com a inicialização
+    $("#"+classe_fonte).attr("checked","checked");
+    $("#"+classe_forca).attr("checked","checked");
+    $("#"+classe_escrita).attr("checked","checked");
 
     span_contator.text("0/" + mm_contador);
 
@@ -24,6 +54,8 @@
 	*	Altera tamanho do texto sempre que necessáro
     */
 	function scaleText(bloco_externo, bloco_interno){
+
+		$("#casulo").css("margin-top",margin_padrao+"px");
 
 		var winW = bloco_externo.innerWidth();
 		var winH = bloco_externo.innerHeight();
@@ -41,7 +73,7 @@
 			while( bloco_interno.outerWidth() < winW ){
 
 				fntSz++;
-
+				console.log("aumentando fonte");
 				bloco_interno.css( 'font-size', fntSz+"px" );
 			}
 
@@ -54,7 +86,7 @@
 		}else{
 			while( bloco_interno.outerWidth() > winW ){
 				fntSz--;
-				
+				console.log("diminuindo fonte");
 				bloco_interno.css( 'font-size', fntSz+"px" );
 			}
 			while( bloco_interno.outerHeight() > winH ){
@@ -62,6 +94,12 @@
 				fntSz--;
 				bloco_interno.css( 'font-size', fntSz+"px" );
 			}
+		}
+
+		//Seta margin-top diferenciado
+		//para a fonte poiret one
+		if(classe_fonte=="poiret_one"){
+			$("#casulo").css("margin-top",margin_diferenca_maior+"px");
 		}
 
 		return true;
@@ -117,6 +155,7 @@
 		texto = texto.replace(/:\(/g,'&#9785;');
 
 		onde.html(texto);
+		span_carregando.fadeIn();
 
 		/*Deixa o texto do tamanho correto*/
 		if (scaleText(bloco, onde)){ //Se der tudo certo, gera a imagem.
@@ -124,18 +163,27 @@
 			/* Gera canvas pra pegar imagem */
 			html2canvas(bloco, {
 			  background: '#fff',
+			  logging:modo_debug,
 			  onrendered: function(canvas_imagem) {
 			    canvas_imagem.id = "cv_imagem2";
 
-			    $("#imagem_final").attr("src", canvas_imagem.toDataURL("image/png",1.0) );
-			    $("#imagem_final").css("display", "block");/*debug*/
-			    
+			    $("#imagem_final").attr("src", canvas_imagem.toDataURL("image/jpeg",0.8) );
+			   
+			    if (!modo_debug){
+			    	$("#imagem_final").css("display", "block");/*debug*/
+			    }
+
 				$("#comentario").fadeIn();
 			  }
 			});
-		}//FIM:scale
 
-		bloco.css("display","none");/*debug*/
+		}//FIM:scale
+		span_carregando.fadeOut();
+
+		if (!modo_debug){
+			bloco.css("display","none");/*debug*/
+		}
+
 	});//FIM:btn_gera_imagem(click)
 
 	/* 
@@ -240,4 +288,5 @@
     		$(".img_ex"+i).attr("src",caminho + "ex" + i + ".png");
     	}
     })();
+
 }(self));

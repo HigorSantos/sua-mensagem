@@ -14,15 +14,15 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Fontes fantásticas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="https://fonts.googleapis.com/css?family=Space+Mono|Caveat|Oswald|Poiret+One|Bungee+Shade" rel="stylesheet">
-
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/cv.css">
+
+  <!-- Fontes fantásticas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono|Caveat|Oswald|Poiret+One|Bungee+Shade" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
 
 </head>
 
@@ -110,7 +110,7 @@
         <div class="row" >
           <div id="bloco" class="space_mono forca_normal escrita_maiuscula">
             <span id="marca" class="space_mono">bit.ly/suamensagem</span>
-            <a href="#"><span id="onde"></span></a>
+            <a id="casulo" href="#"><span id="onde"></span></a>
           </div>
         </div>
 
@@ -118,7 +118,7 @@
         Onde será exibida a imagem.
         Só aparece quando consegue gerar a imagem
         -->
-        <div class="row">
+        <div class="row u-cf">
           <img id="imagem_final"/>
 
           <div id="comentario">
@@ -137,7 +137,7 @@
             
             <p style="margin:1rem 0"><em>Oh, caso você esteja usando um navegador antigo e alguma coisa saia fora do controle, peço perdão pelo vacilo!</em></p>
             
-            <p style="text-align: center">Alpha 0.35</p>
+            <p style="text-align: center">Alpha 0.37</p>
           </div>
         </div>
       </div>

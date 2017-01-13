@@ -65,12 +65,12 @@ div.row{
   margin-top: 10px;
   height: 800px;
   width: 800px;
-  /*display:none;/*debug*/
+  display:none;/*debug*/
   vertical-align:middle;
   font-size: 120px;
   position: absolute;
   overflow: hidden;
-  /*debug*//* background: #16a085;*/
+  /*debug*/ /*background: #16a085;*/
 }
 
 #bloco a{

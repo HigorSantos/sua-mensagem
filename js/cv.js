@@ -1,5 +1,5 @@
 /**
- * v0.36
+ * v0.37
  */
 (function(){
 "use strict";
@@ -31,9 +31,8 @@
     	canvas_imagem = $("<canvas/>") ,
     	nome_arquivo = "imagem_fantastica.png" ,
 		fntSz = 120,
-		mm_contador = 70,
-		margin_padrao = 10,
-		margin_diferenca_maior = -35,
+		mm_contador = 100,
+		fonte_diferenca_maior = 40,
 		span_contator = $("#contador"),
 		span_carregando = $("<span/>").append($("<em/>").text("Carregando...")).css("display","none");
 
@@ -54,9 +53,6 @@
 	*	Altera tamanho do texto sempre que necessáro
     */
 	function scaleText(bloco_externo, bloco_interno){
-
-		$("#casulo").css("margin-top",margin_padrao+"px");
-
 		var winW = bloco_externo.innerWidth();
 		var winH = bloco_externo.innerHeight();
 
@@ -70,36 +66,53 @@
 
 		if( wRatio <= 1 ){
 
-			while( bloco_interno.outerWidth() < winW ){
+			var dif_fonte = 0;
 
-				fntSz++;
-				console.log("aumentando fonte");
-				bloco_interno.css( 'font-size', fntSz+"px" );
+			//Seta fonte diferenciada
+			//para a fonte poiret one que é maior que as outras
+			if(classe_fonte=="poiret_one"){
+				dif_fonte = fonte_diferenca_maior;
 			}
 
-			while( bloco_interno.outerHeight() > winH ){   /* never true? */
+			while( bloco_interno.outerWidth() < (winW - dif_fonte) ){
+				
+				if (modo_debug){
+					console.log("outerWidth < winH");
+				}
+
+				fntSz++;
+				
+				bloco_interno.css( 'font-size', fntSz+"px" );
+				
+			}
+
+			while( bloco_interno.outerHeight() > (winW - dif_fonte) ){   /* never true? */
+				
+
+				if (modo_debug){
+					console.log("outerHeight > winH");
+				}
 
 				fntSz--;
 				bloco_externo.css( 'font-size', fntSz+"px" );
 				bloco_interno.css( 'font-size', fntSz+"px" );
 			}
 		}else{
-			while( bloco_interno.outerWidth() > winW ){
+			while( bloco_interno.outerWidth() > (winW - dif_fonte) ){
 				fntSz--;
-				console.log("diminuindo fonte");
+
 				bloco_interno.css( 'font-size', fntSz+"px" );
+
 			}
-			while( bloco_interno.outerHeight() > winH ){
+			while( bloco_interno.outerHeight() > (winW - dif_fonte) ){
 
 				fntSz--;
 				bloco_interno.css( 'font-size', fntSz+"px" );
 			}
 		}
 
-		//Seta margin-top diferenciado
-		//para a fonte poiret one
-		if(classe_fonte=="poiret_one"){
-			$("#casulo").css("margin-top",margin_diferenca_maior+"px");
+		if (modo_debug){
+			console.log("FIM SCALE");
 		}
 
 		return true;

@@ -1,5 +1,5 @@
 /*
-* v0.36
+* v0.37
 *------
 * # Cores usadas #
 * #eee Cinza para linhas
@@ -71,6 +71,7 @@ div.row{
   position: absolute;
   overflow: hidden;
   /*debug*/ /*background: #16a085;*/
+
 }
 
 #bloco a{
@@ -81,13 +82,14 @@ div.row{
   color: inherit;
   text-align:center;
   margin: 10px;
+
 }
 
 
 #onde{
   text-align: center;
   position: relative;
-
+  padding: 20px 0;
   line-height: 1;
   /*debug*//*background: #1abc9c;*/
   z-index: 1;
@@ -95,6 +97,7 @@ div.row{
 .inverte{
   background-color: #000;
   color:#fff;
+  padding: 5px;
 }
 #imagem_final{
   display: none;
@@ -117,8 +120,8 @@ div.row{
 
 #marca{
   color: #7f8c8d;
-  font-size: 2.5rem;
-  font-weight: 300;
+  font-size: 2.2rem;
+  font-weight: 400;
   position: absolute;
   text-transform: none;
   bottom: 0;
@@ -129,7 +132,7 @@ div.row{
 #contador{
   position: absolute;
   text-transform: none;
-  bottom: 0;
+  bottom: -15px;
   border-radius: 4px;
   background: #ecf0f1;
   padding: .4rem;
@@ -167,6 +170,14 @@ div.row{
 .bungee_shade{
   font-family: 'Bungee Shade'
 }
+.special_elite{
+  font-family: 'Special Elite'
+}
+.megrim{
+  font-family: 'Megrim'
+}
+/* --- FIM FONTES --- */
+
 .forca_normal{
   font-weight: 100;
 }

@@ -1,5 +1,5 @@
 /**
- * v0.37
+ * v0.40
  */
 (function(){
 "use strict";
@@ -28,10 +28,10 @@
     	classe_forca = iniciador.forca ,
     	classe_escrita = iniciador.escrita ,
     	classe_destaque_texto = "inverte" ,
-    	canvas_imagem = $("<canvas/>") ,
+    	//canvas_imagem = $("<canvas/>") ,
     	nome_arquivo = "imagem_fantastica.png" ,
 		fntSz = 120,
-		mm_contador = 100,
+		mm_contador = 180,
 		fonte_diferenca_maior = 40,
 		span_contator = $("#contador"),
 		span_carregando = $("<span/>").append($("<em/>").text("Carregando...")).css("display","none");
@@ -67,14 +67,17 @@
 		if( wRatio <= 1 ){
 
 			var dif_fonte = 0;
+     		var qtd_caracter_texto = $('textarea').val().length
 
 			//Seta fonte diferenciada
 			//para a fonte poiret one que é maior que as outras
-			if(classe_fonte=="poiret_one"){
+			/*if(classe_fonte=="poiret_one" ){
 				dif_fonte = fonte_diferenca_maior;
-			}
+			}else if(qtd_caracter_texto > 150){
+				dif_fonte = fonte_diferenca_maior+10;
+			}*/
 
-			while( bloco_interno.outerWidth() < (winW - dif_fonte) ){
+			while( bloco_interno.outerWidth() < winW  ){
 				
 				if (modo_debug){
 					console.log("outerWidth < winH");
@@ -82,11 +85,12 @@
 
 				fntSz++;
 				
+				bloco_externo.css( 'font-size', fntSz+"px" );
 				bloco_interno.css( 'font-size', fntSz+"px" );
 				
 			}
 
-			while( bloco_interno.outerHeight() > (winW - dif_fonte) ){   /* never true? */
+			while( bloco_interno.outerHeight() > winW ){   /* never true? */
 				
 
 				if (modo_debug){
@@ -98,15 +102,25 @@
 				bloco_interno.css( 'font-size', fntSz+"px" );
 			}
 		}else{
-			while( bloco_interno.outerWidth() > (winW - dif_fonte) ){
+			while( bloco_interno.outerWidth() > winW ){
+				if (modo_debug){
+					console.log("fntSz--(1)");
+				}
+
 				fntSz--;
 
+				bloco_externo.css( 'font-size', fntSz+"px" );
 				bloco_interno.css( 'font-size', fntSz+"px" );
 
 			}
-			while( bloco_interno.outerHeight() > (winW - dif_fonte) ){
+			while( bloco_interno.outerHeight() > winW ){
+				if (modo_debug){
+					console.log("fntSz--(2)");
+				}
 
 				fntSz--;
+
+				bloco_externo.css( 'font-size', fntSz+"px" );
 				bloco_interno.css( 'font-size', fntSz+"px" );
 			}
 		}
@@ -205,6 +219,9 @@
 	* dos radio que estilizam as mensagens.
 	*/
     $( "input" ).on( "click", function() {
+
+    	//Limpa bloco de texto
+    	$("#onde").text("");
 
     	/* Trada alteração na fonte */
 		if ($(this).attr("name")=='fonte'){

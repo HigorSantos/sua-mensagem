@@ -32,7 +32,6 @@
     	nome_arquivo = "imagem_fantastica.png" ,
 		fntSz = 120,
 		mm_contador = 180,
-		fonte_diferenca_maior = 40,
 		span_contator = $("#contador"),
 		span_carregando = $("<span/>").append($("<em/>").text("Carregando...")).css("display","none");
 
@@ -66,17 +65,6 @@
 
 		if( wRatio <= 1 ){
 
-			var dif_fonte = 0;
-     		var qtd_caracter_texto = $('textarea').val().length
-
-			//Seta fonte diferenciada
-			//para a fonte poiret one que é maior que as outras
-			/*if(classe_fonte=="poiret_one" ){
-				dif_fonte = fonte_diferenca_maior;
-			}else if(qtd_caracter_texto > 150){
-				dif_fonte = fonte_diferenca_maior+10;
-			}*/
-
 			while( bloco_interno.outerWidth() < winW  ){
 				
 				if (modo_debug){
@@ -90,7 +78,7 @@
 				
 			}
 
-			while( bloco_interno.outerHeight() > winW ){   /* never true? */
+			while( bloco_interno.outerHeight() > winH ){   /* never true? */
 				
 
 				if (modo_debug){
@@ -113,7 +101,7 @@
 				bloco_interno.css( 'font-size', fntSz+"px" );
 
 			}
-			while( bloco_interno.outerHeight() > winW ){
+			while( bloco_interno.outerHeight() > winH ){
 				if (modo_debug){
 					console.log("fntSz--(2)");
 				}
@@ -194,7 +182,7 @@
 			  onrendered: function(canvas_imagem) {
 			    canvas_imagem.id = "cv_imagem2";
 
-			    $("#imagem_final").attr("src", canvas_imagem.toDataURL("image/jpeg",0.8) );
+			    $("#imagem_final").attr("src", canvas_imagem.toDataURL("image/jpeg",0.9) );
 			   
 			    if (!modo_debug){
 			    	$("#imagem_final").css("display", "block");/*debug*/
@@ -246,6 +234,19 @@
 
 			$("#bloco").removeClass();
 			$("#bloco").addClass(classe_escrita).addClass(classe_forca).addClass(classe_fonte);
+		}
+
+
+		/*--------------
+		* Exibe / mostra URL como "marca" da imagem no canto inferior
+		 */
+		if ($(this).attr("name")=='exibe_marca'){
+			console.log($(this).prop("checked"));
+			if($(this).prop("checked")){
+				$("#marca").hide();
+			}else{
+				$("#marca").show();
+			}
 		}
     });
 

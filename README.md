@@ -10,6 +10,8 @@ As fontes são direto do [Google Fonts](https://fonts.google.com).
 
 O site é responsível, graças ao [Skeleton](http://getskeleton.com/).
 
+Os backgrounds são de: [Subtle Patterns](https://subtlepatterns.com)
+
 Utilizei algumas outras coisas para refrescar a memória de como desenvolver web.
 
 https://coderwall.com/p/4qpmfw/sharing-html5-canvas-images-to-directly-to-facebook

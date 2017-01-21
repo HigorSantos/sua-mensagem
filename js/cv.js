@@ -12,14 +12,18 @@
 	var iniciador = {
 		fonte:"space_mono", 
 		forca:"forca_normal", 
-		escrita:"escrita_maiuscula"
+		escrita:"escrita_maiuscula",
+		sombra:"",
+		background:"none"
 	};
 
 	if (modo_debug){
 		iniciador = {
 			fonte:"poiret_one", 
 			forca:"forca_normal", 
-			escrita:"escrita_maiuscula"
+			escrita:"escrita_maiuscula",
+			sombra:"sombra",
+			background:"none"
 		};
 	}
 
@@ -27,7 +31,9 @@
     	classe_fonte = iniciador.fonte,
     	classe_forca = iniciador.forca ,
     	classe_escrita = iniciador.escrita ,
-    	classe_destaque_texto = "inverte" ,
+    	classe_sombra = iniciador.sombra,
+    	classe_destaque_texto = "inverte",
+    	classe_background = iniciador.background,
     	//canvas_imagem = $("<canvas/>") ,
     	nome_arquivo = "imagem_fantastica.png" ,
 		fntSz = 120,
@@ -215,33 +221,47 @@
 		if ($(this).attr("name")=='fonte'){
 		    classe_fonte = $(this).val();
 
-		    $("#bloco").removeClass();
-
-		    $("#bloco").addClass(classe_fonte).addClass(classe_forca).addClass(classe_escrita);
+		    adiciona_classes_bloco();
 		 }
 
 		/* Trata seleção do peso da fonte */
 		if ($(this).attr("name")=='forca'){
 			classe_forca = $(this).val();
 
-			$("#bloco").removeClass();
-			$("#bloco").addClass(classe_forca).addClass(classe_fonte).addClass(classe_escrita);
+			adiciona_classes_bloco();
 		}
 
 		/* Trata alteração na forma como o texto é exibido */
 		if ($(this).attr("name")=='escrita'){
 			classe_escrita = $(this).val();
 
-			$("#bloco").removeClass();
-			$("#bloco").addClass(classe_escrita).addClass(classe_forca).addClass(classe_fonte);
+			adiciona_classes_bloco();
 		}
 
+		//Sombra
+		if ($(this).attr("name")=='exibe_sombra'){
+			
+			if($(this).prop("checked")){
+				classe_sombra = "sombra";
+			}else{
+				classe_sombra = "";
+			}
+
+			adiciona_classes_bloco();			
+		}
+
+		//background
+		if ($(this).attr("name")=='background'){
+			classe_background = $(this).val();
+
+			adiciona_classes_bloco();
+		}
 
 		/*--------------
 		* Exibe / mostra URL como "marca" da imagem no canto inferior
 		 */
 		if ($(this).attr("name")=='exibe_marca'){
-			console.log($(this).prop("checked"));
+
 			if($(this).prop("checked")){
 				$("#marca").hide();
 			}else{
@@ -249,6 +269,19 @@
 			}
 		}
     });
+
+    /*
+    * Adiciona as classes que estilizam o texto
+     */
+    function adiciona_classes_bloco(){
+
+		$("#bloco").removeClass();
+		$("#bloco").addClass(classe_escrita)
+					.addClass(classe_forca)
+					.addClass(classe_fonte)
+					.addClass(classe_sombra)
+					.addClass(classe_background);
+    }
 
     /*
     * Limita tamanho do texto no textarea

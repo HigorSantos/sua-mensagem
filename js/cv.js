@@ -46,8 +46,8 @@
 
 	/* Inicia os elementos */
     $("#imagem_final").attr("src","");
-    $("#bloco").removeClass();
-    $("#bloco").addClass(classe_fonte).addClass(classe_forca).addClass(classe_escrita);
+    //Adiciona classes padrões
+    adiciona_classes_bloco();
 	$("#bloco").append(span_carregando);
 
     //Seleciona os radio box, de acordo com a inicialização

@@ -140,6 +140,12 @@
         </div>
 
         <div class="row opc">
+          <span class="nowrap"><input type="radio" name="formato" id="form_quadrado" value="form_quadrado" checked="checked" /><label for="form_quadrado" class="form_quadrado">Gerar imagem quadrada</label></span>
+          
+          <span class="nowrap"><input type="radio" name="formato" id="form_retangular" value="form_retangular"/><label for="form_retangular" class="form_retangular">Gerar imagem retangular</label></span>
+        </div>
+
+        <div class="row opc">
           <input type="checkbox" name="exibe_marca" id="exibe_marca"/><label for="exibe_marca">Não quero que tenha a URL no canto da imagem para mostrar onde fiz essa imagem fantástica.</label></span>
         </div>
         <!--
@@ -156,7 +162,7 @@
         Tudo isso por padrão fica escondido!
         -->
         <div class="row" >
-          <div id="bloco" class="space_mono forca_normal escrita_maiuscula">
+          <div id="bloco" class="space_mono forca_normal escrita_maiuscula form_quadrado">
             <span id="marca" class="space_mono">bit.ly/suamensagem</span>
             <a id="casulo" href="#"><span id="onde"></span></a>
           </div>

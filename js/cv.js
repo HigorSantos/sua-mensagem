@@ -14,7 +14,8 @@
 		forca:"forca_normal", 
 		escrita:"escrita_maiuscula",
 		sombra:"",
-		background:"none"
+		background:"none",
+		formato:"form_quadrado"
 	};
 
 	if (modo_debug){
@@ -23,23 +24,25 @@
 			forca:"forca_normal", 
 			escrita:"escrita_maiuscula",
 			sombra:"sombra",
-			background:"none"
+			background:"none",
+			formato:"form_quadrado"
 		};
 	}
 
     var 
-    	classe_fonte = iniciador.fonte,
-    	classe_forca = iniciador.forca ,
-    	classe_escrita = iniciador.escrita ,
-    	classe_sombra = iniciador.sombra,
-    	classe_destaque_texto = "inverte",
-    	classe_background = iniciador.background,
+    	classe_fonte 			= iniciador.fonte,
+    	classe_forca 			= iniciador.forca ,
+    	classe_escrita 			= iniciador.escrita ,
+    	classe_sombra 			= iniciador.sombra,
+    	classe_destaque_texto	= "inverte",
+    	classe_background 		= iniciador.background,
+    	classe_formato 			= iniciador.formato,
     	//canvas_imagem = $("<canvas/>") ,
-    	nome_arquivo = "imagem_fantastica.png" ,
-		fntSz = 120,
-		mm_contador = 180,
-		span_contator = $("#contador"),
-		span_carregando = $("<span/>").append($("<em/>").text("Carregando...")).css("display","none");
+    	nome_arquivo 	= "imagem_fantastica.png" ,
+		fntSz 			= 120,
+		mm_contador		= 180,
+		span_contator	= $("#contador"),
+		span_carregando	= $("<span/>").append($("<em/>").text("Carregando...")).css("display","none");
 
 	/* Inicia os elementos */
     $("#imagem_final").attr("src","");
@@ -259,6 +262,14 @@
 			adiciona_classes_bloco();
 		}
 
+		//Formato da imagem
+		if ($(this).attr("name")=='formato'){
+			classe_formato = $(this).val();
+			$("#imagem_final").removeClass().addClass(classe_formato);
+
+			adiciona_classes_bloco();
+		}
+
 		/*--------------
 		* Exibe / mostra URL como "marca" da imagem no canto inferior
 		 */
@@ -282,7 +293,8 @@
 					.addClass(classe_forca)
 					.addClass(classe_fonte)
 					.addClass(classe_sombra)
-					.addClass(classe_background);
+					.addClass(classe_background)
+					.addClass(classe_formato);
     }
 
     /*

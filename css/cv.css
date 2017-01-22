@@ -63,8 +63,6 @@ div.row{
 
 #bloco{
   margin-top: 10px;
-  height: 800px;
-  width: 800px;
   display:none;/*debug*/
   vertical-align:middle;
   font-size: 120px;
@@ -99,9 +97,7 @@ div.row{
 }
 #imagem_final{
   display: none;
-  width: 98%;
-  max-width: 500px;
-  height: auto;
+  width: 800px;
 }
 
 #coisas_legais{
@@ -203,4 +199,26 @@ div.row{
 }
 .sombra_menor{
   text-shadow: 1px 1px 2px #000;
+}
+
+/*Formato*/
+/*Quadrado*/
+.form_quadrado{
+  height: 800px;
+  width: 800px;
+}
+
+img.form_quadrado{
+  max-width: 500px;
+  height: auto;
+}
+
+.form_retangular{
+  width: 800px;
+  height: 300px;
+}
+
+img.form_retangular{
+  max-width: 500px;
+  height: auto;
 }

@@ -5,3 +5,4 @@ teste.*
 js/canvas-toBlob.js
 js/Blob.js
 js/FileSaver.min.js
+outro/*

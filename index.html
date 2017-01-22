@@ -20,10 +20,13 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/cv.css">
 
-  <!-- Fontes fantásticas
+  <!--O truque abaixo é para o html não esperar o conteúdo css ser baixado para terminar de carregar
+    Fontes fantásticas
+    Backgrounds
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="https://fonts.googleapis.com/css?family=Space+Mono|Caveat|Oswald|Poiret+One|Bungee+Shade|Special+Elite|Megrim" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
-
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono|Caveat|Oswald|Poiret+One|Bungee+Shade" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite|Megrim|Cormorant|Amatic+SC" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
+  <link href="css/background.css" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
 </head>
 
 <body>
@@ -60,17 +63,23 @@
         <!--
         Caixa de texto #1
         -->
-        <div class="row" style="position: relative;">
+        <div class="" style="position: relative;">
           <textarea id="texto" placeholder="Escreve alguma coisa aqui!"></textarea>
           <div id="contador" class="space_mono u-cf"></div>
         </div>
-        
+
         <!--
         Estiliza o texto #2
         -->
+        
         <div class="row opc">
           <h6>Aqui da para mudar alguns detalhes</h6>
 
+          <!--
+          *
+          * FONTES
+          *
+          -->
           <span class="nowrap"><input type="radio" name="fonte" id="space_mono" value="space_mono" checked="checked" /><label for="space_mono" class="space_mono">Space Mono</label></span>
 
           <span class="nowrap"><input type="radio" name="fonte" id="caveat" value="caveat"/><label for="caveat" class="caveat">Caveat</label></span>
@@ -84,6 +93,15 @@
           <span class="nowrap"><input type="radio" name="fonte" id="special_elite" value="special_elite"/><label for="special_elite" class="special_elite">Special Elite</label></span>
 
           <span class="nowrap"><input type="radio" name="fonte" id="megrim" value="megrim"/><label for="megrim" class="megrim">Megrim</label></span>
+
+          <span class="nowrap"><input type="radio" name="fonte" id="cormorant" value="cormorant"/><label for="cormorant" class="cormorant">Cormorant</label></span>
+
+          <span class="nowrap"><input type="radio" name="fonte" id="amatic_sc" value="amatic_sc"/><label for="amatic_sc" class="amatic_sc">Amatic SC</label></span>
+          <!--
+          *
+          * FONTES
+          * FIM
+          -->
         </div>
           
         <div class="row opc">
@@ -97,18 +115,28 @@
           
           <span class="nowrap"><input type="radio" name="escrita" id="escrita_maiuscula" value="escrita_maiuscula" checked="checked"  /><label for="escrita_maiuscula" class="escrita_maiuscula">MAIÚSCULAS</label></span>
         </div>
-        
-        <div class="row opc">
+      
+        <!--<div class="row opc">
           <input type="checkbox" name="exibe_sombra" id="exibe_sombra"/><label for="exibe_sombra" class="sombra_menor">Colocar sombra no texto</label></span>
-        </div>
+        </div>-->
 
         <div class="row opc">
           <p style="margin:0">Você pode escolher uma imagem de fundo (experimente):</p>
-          <span class="nowrap"><input type="radio" name="background" id="bg_small_steps" value="bg_small_steps" /><label for="bg_small_steps" class="bg_small_steps">Small Steps</label></span>
-          
-          <span class="nowrap"><input type="radio" name="background" id="bg_stardust" value="bg_stardust" /><label for="bg_stardust" class="bg_stardust">Stardust</label></span>
+          <span class="nowrap"><input type="radio" name="background" id="bg_nao_quero" value="bg_nao_quero" checked="checkbox" /><label for="bg_nao_quero" class="bg_nao_quero">Não quero</label></span>
 
-          <span class="nowrap"><input type="radio" name="background" id="bg_triangular" value="bg_triangular" /><label for="bg_triangular" class="bg_triangular">Triangular</label></span>
+          <span class="nowrap"><input type="radio" name="background" id="bg_small_steps" value="bg_small_steps" /><label for="bg_small_steps" class="bg_small_steps bg">Small Steps</label></span>
+          
+          <span class="nowrap"><input type="radio" name="background" id="bg_stardust" value="bg_stardust" /><label for="bg_stardust" class="bg_stardust bg">Stardust</label></span>
+
+          <span class="nowrap"><input type="radio" name="background" id="bg_triangular" value="bg_triangular" /><label for="bg_triangular" class="bg_triangular bg">Triangular</label></span>
+
+          <span class="nowrap"><input type="radio" name="background" id="bg_dark_embroidery" value="bg_dark_embroidery" /><label for="bg_dark_embroidery" class="bg_dark_embroidery bg">Dark Embroidery</label></span>
+
+          <span class="nowrap"><input type="radio" name="background" id="bg_black_felt" value="bg_black_felt" /><label for="bg_black_felt" class="bg_black_felt bg">Black Felt</label></span>
+
+          <span class="nowrap"><input type="radio" name="background" id="bg_notebook" value="bg_notebook" /><label for="bg_notebook" class="bg_notebook bg">Notebook</label></span>
+
+          <span class="nowrap"><input type="radio" name="background" id="bg_grey_floral" value="bg_grey_floral" /><label for="bg_grey_floral" class="bg_grey_floral bg">Grey Floral</label></span>
         </div>
 
         <div class="row opc">
@@ -153,9 +181,12 @@
           <div class="info">
             <p>Quem fez? Eu, Higor Santos do <a href="http://hinfos.com">Hinfos.com</a>.</p>
             
-            <p>O código disso aqui, você consegue no <a href="https://github.com/HigorSantos/sua-mensagem">meu GitHub</a>. Pode ir lá, uso "The MIT License".</p>
+            <p style="font-weight: 700; margin:1rem 0">Alguns créditos:</p>
+            <p>As imagens de fundo que deixam tudo ainda mais bonito, são do site <a href="https://subtlepatterns.com" target="_blank">Subtle Patterns</a>.</p>
+
+            <p>Mais algumas coisas que utilizei, junto com o código disso aqui, você consegue no <a href="https://github.com/HigorSantos/sua-mensagem">meu GitHub</a>. Pode ir lá, uso "The MIT License". :)</p>
             
-            <p style="margin:1rem 0"><em>Oh, caso você esteja usando um navegador antigo e alguma coisa saia fora do controle, peço perdão pelo vacilo!</em></p>
+            <p style="margin:1rem 0"><em>Ah, caso você esteja usando um navegador antigo e alguma coisa saia fora do controle, peço perdão pelo vacilo!</em></p>
             
             <p style="text-align: center">Alpha 0.40</p>
           </div>

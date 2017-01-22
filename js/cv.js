@@ -19,7 +19,7 @@
 
 	if (modo_debug){
 		iniciador = {
-			fonte:"poiret_one", 
+			fonte:"cormorant", 
 			forca:"forca_normal", 
 			escrita:"escrita_maiuscula",
 			sombra:"sombra",
@@ -149,7 +149,8 @@
 
 		//Faz algumas substituições de texto para html
 		texto = texto.replace(/\n/g,'<br/>');
-		
+		texto = texto.replace(/' '/g,'&nbsp;');
+
 		/*Destaca o texto entre cerquilha*/
 		var primeira_ocor_cerquilha = texto.indexOf("#");
 		var ultima_ocor_cerquilha = texto.lastIndexOf("#");
@@ -184,7 +185,8 @@
 			/* Gera canvas pra pegar imagem */
 			html2canvas(bloco, {
 			  background: '#fff',
-			  logging:modo_debug,
+			  logging:true,
+
 			  onrendered: function(canvas_imagem) {
 			    canvas_imagem.id = "cv_imagem2";
 

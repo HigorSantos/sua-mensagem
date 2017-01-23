@@ -1,5 +1,5 @@
 /**
- * v0.40
+ * v0.5
  */
 (function(){
 "use strict";
@@ -38,6 +38,7 @@
     	classe_background 		= iniciador.background,
     	classe_formato 			= iniciador.formato,
     	//canvas_imagem = $("<canvas/>") ,
+    	canvas_url_data = "",
     	nome_arquivo 	= "imagem_fantastica.png" ,
 		fntSz 			= 120,
 		mm_contador		= 180,
@@ -188,12 +189,12 @@
 			/* Gera canvas pra pegar imagem */
 			html2canvas(bloco, {
 			  background: '#fff',
-			  logging:true,
+			  logging:modo_debug,
 
 			  onrendered: function(canvas_imagem) {
-			    canvas_imagem.id = "cv_imagem2";
+			  	canvas_url_data = canvas_imagem.toDataURL("image/png",0.9);
 
-			    $("#imagem_final").attr("src", canvas_imagem.toDataURL("image/jpeg",0.9) );
+			    $("#imagem_final").attr("src", canvas_url_data );
 			   
 			    if (!modo_debug){
 			    	$("#imagem_final").css("display", "block");/*debug*/
@@ -366,5 +367,9 @@
     		$(".img_ex"+i).attr("src",caminho + "ex" + i + ".png");
     	}
     })();
+
+	/*
+	* FIM
+	*/
 
 }(self));

@@ -14,8 +14,6 @@ Os backgrounds são de: [Subtle Patterns](https://subtlepatterns.com)
 
 Utilizei algumas outras coisas para refrescar a memória de como desenvolver web.
 
-https://coderwall.com/p/4qpmfw/sharing-html5-canvas-images-to-directly-to-facebook
-
 http://howtocenterincss.com/
 
 http://www.sabinanore.com/design/html-special-symbols/

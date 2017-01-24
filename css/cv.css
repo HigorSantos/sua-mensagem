@@ -209,7 +209,7 @@ div.row{
 }
 
 img.form_quadrado{
-  max-width: 500px;
+  max-width: 98%;
   height: auto;
 }
 
@@ -219,6 +219,6 @@ img.form_quadrado{
 }
 
 img.form_retangular{
-  max-width: 500px;
+  max-width:  98%;
   height: auto;
 }

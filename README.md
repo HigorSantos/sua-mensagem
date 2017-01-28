@@ -18,6 +18,8 @@ http://howtocenterincss.com/
 
 http://www.sabinanore.com/design/html-special-symbols/
 
+https://eduardoboucas.com/blog/2015/06/18/viewport-sized-typography-with-minimum-and-maximum-sizes.html
+
 
 ## Licença
 

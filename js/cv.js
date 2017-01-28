@@ -228,6 +228,7 @@
 		    classe_fonte = $(this).val();
 
 		    adiciona_classes_bloco();
+		    adiciona_classes_opc($("#fonte_escolhida"), classe_fonte);
 		 }
 
 		/* Trata seleção do peso da fonte */
@@ -235,6 +236,8 @@
 			classe_forca = $(this).val();
 
 			adiciona_classes_bloco();
+
+			adiciona_classes_opc($("#forca_escolhida"), classe_forca);
 		}
 
 		/* Trata alteração na forma como o texto é exibido */
@@ -242,18 +245,8 @@
 			classe_escrita = $(this).val();
 
 			adiciona_classes_bloco();
-		}
 
-		//Sombra
-		if ($(this).attr("name")=='exibe_sombra'){
-			
-			if($(this).prop("checked")){
-				classe_sombra = "sombra";
-			}else{
-				classe_sombra = "";
-			}
-
-			adiciona_classes_bloco();			
+			adiciona_classes_opc($("#escrita_escolhida"), classe_escrita);
 		}
 
 		//background
@@ -261,6 +254,8 @@
 			classe_background = $(this).val();
 
 			adiciona_classes_bloco();
+
+			adiciona_classes_opc($("#fundo_escolhida"), classe_background);
 		}
 
 		//Formato da imagem
@@ -269,6 +264,8 @@
 			$("#imagem_final").removeClass().addClass(classe_formato);
 
 			adiciona_classes_bloco();
+
+			adiciona_classes_opc($("#formato_escolhida"),classe_formato);
 		}
 
 		/*--------------
@@ -298,6 +295,13 @@
 					.addClass(classe_formato);
     }
 
+    function adiciona_classes_opc(obj, classe){
+		obj.text($("label."+classe).text())
+	    	.removeClass()
+	    	.addClass(classe)
+	    	.addClass("escolhido");
+    }
+
     /*
     * Limita tamanho do texto no textarea
     */
@@ -315,7 +319,6 @@
       }else{
       	span_contator.text(inputStr.length + "/" + mm_contador);
       }
-
       
     });
 
@@ -326,30 +329,31 @@
     $( "#det_coisas_legais" ).on( "click", function() {
 
     	if (esconde_coisas_legais){
-    		$("#coisas_legais").fadeOut();
+    		$("#coisas_legais").slideUp();
     		$(this).text("Ah, olha o que da pra fazer de legal!");
     	}else{
-    		$("#coisas_legais").fadeIn();
+    		$("#coisas_legais").slideDown();
     		$(this).text("Bacana né? [clique aqui para esconder]");
     	}
 
     	esconde_coisas_legais = !esconde_coisas_legais;
     });
 
-    /*
-    * Salva a imagem em png
-     */
-    /*$( "#salva_imagem" ).on( "click", function() {
 
-    	if (canvas_imagem){
-	    	canvas_imagem.toBlobHD(function(blob) {
-				saveAs(
-						blob,
-						nome_arquivo
-				);
-			}, "image/png");
+    /**
+    * CONTROLA EXIBIÇÃO DAS CONFIGURAÇÕES
+    */
+    $( ".opc" ).on( "click", function() {
+    	var nome_opc = $(this).attr("id");
+
+    	if ($("."+nome_opc).css("display")=="none"){
+			$("."+nome_opc).slideDown();
+		}else{
+			$("."+nome_opc).slideUp();
 		}
-    });*/
+
+	});
+    
 
     /*
     * Carrega as imagens de exemplo   
@@ -360,11 +364,11 @@
     	//O nome das imgens ta como ex*.png
     	//* é um número
     	var caminho = "img/";
-    	var qtd_img = 4;
+    	var qtd_img = 2;
     	var i = 0;
 
     	for (i=1; i <= qtd_img; i++){
-    		$(".img_ex"+i).attr("src",caminho + "ex" + i + ".png");
+    		$(".img_ex"+i).attr("src",caminho + "ex" + i + ".jpg");
     	}
     })();
 

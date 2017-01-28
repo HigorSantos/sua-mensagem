@@ -1,0 +1,110 @@
+/* Estilos para p├ígina principal e gera├º├úo da imagem
+ * v0.4
+ * ------
+ * cz.sass */
+
+$cor_marca: #7f8c8d;
+$tamanho_inicia_fonte: 120px;
+$background_inverte: #000;
+$color_inverte: #fff;
+$largura_maxima: 800px;
+$tamanho_imagem_final: $largura_maxima;
+$altura_maxima: $largura_maxima;
+$altura_retangular: 300px;
+
+@import "classe_fonte";
+
+#bloco {
+  margin-top: 10px;
+
+  display:	none; /*debug */
+  vertical-align: middle;
+  font-size: $tamanho_inicia_fonte;
+  position: absolute;
+  overflow: hidden;
+  //zoom: 55%;
+
+  /*debug*/ /*background: #16a085 */
+}
+
+#bloco a {
+  display: block;
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  margin: 0px;
+}
+
+#onde {
+  text-align: center;
+  position: relative;
+  padding: 20px 0;
+  line-height: 1;
+  z-index: 1;
+
+  /*debug*//*background: #1abc9c */
+}
+
+.inverte {
+  background-color: $background_inverte;
+  color: $color_inverte;
+  padding: 2px 5px;
+}
+
+#imagem_final {
+  display: none;
+  width: $tamanho_imagem_final;
+}
+
+#marca {
+  color: $cor_marca;
+  font-size: 2.2rem;
+  font-weight: 400;
+  position: absolute;
+  text-transform: none;
+  bottom: 0;
+  right: 5px;
+  z-index: 2;
+}
+
+// Estiliza texto
+.forca_normal {
+  font-weight: 100;
+}
+
+.bem_forte {
+  font-weight: 800;
+}
+
+.escrita_normal {
+  text-transform: none;
+}
+
+.escrita_maiuscula {
+  text-transform: uppercase;
+}
+
+/* Formato da imagem */
+
+// Quadrado*
+.form_quadrado {
+  height: $altura_maxima;
+  width: $largura_maxima;
+}
+
+img.form_quadrado {
+  max-width: 98%;
+  height: auto;
+}
+
+.form_retangular {
+  width: $largura_maxima;
+  height: $altura_retangular;
+}
+
+img.form_retangular {
+  max-width: 98%;
+  height: auto;
+}

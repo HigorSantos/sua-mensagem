@@ -1,0 +1,186 @@
+/* pagina.css
+ * Trata dos estilos gerais da p├ígina
+ */
+
+//Import necess├írios
+//@import "responsive_font";
+
+$cor_linhas: #bdc3c7;
+$cor_linha_escura: #C5CAE9;
+$cor_background: #ECEFF1;
+$cor_background_destaque: #CFD8DC;
+$cor_background_escuro: #455A64;
+
+body{
+  font-size: 1.45em;
+  font-family: "Segoe UI", sans-serif;
+}
+
+label {
+  display: inline;
+}
+
+input[type=radio] {
+  margin-left: 0.5rem;
+  margin-right: 0.1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h6 {
+  margin: 0.5rem 0 0.2rem 0;
+}
+
+h1 {
+  white-space: nowrap;
+}
+
+header{
+  text-align: center;
+  padding: 0 10px;
+  margin-top: 0;
+  color: #263238;
+  border-bottom: 1px solid $cor_background;
+}
+
+/*
+  Sobreescreve algumas classes do skeleton
+  para ficar de acordo com as cores escolhidas
+  */
+button.button-primary{
+  background: $cor_background_escuro;
+  border-color: $cor_background_escuro;
+}
+
+.descr{
+  font-size: 1.8rem;
+}
+
+.limit-min-max {
+  font-size: 5vw;
+
+  @media (max-width: 400px) {
+    font-size: 30px;
+    white-space: normal;
+  }
+
+  @media (min-width: 700px) {
+    font-size: 50px;
+  }
+}
+
+.limit-min {
+  font-size: 3vw;
+
+  @media (max-width: 400px) {
+    font-size: 20px;
+  }
+  @media (min-width: 700px) {
+    font-size: 30px;
+  }
+}
+
+textarea {
+  margin-top: 10px;
+  //width: 300px;
+  height: 100px;
+}
+
+
+footer {
+  @extend header;
+
+  border-bottom: none;
+  border-top: 1px solid #eee;
+  background: $cor_background;
+  padding-top:10px;
+  p {
+    margin: 0;
+  }
+}
+
+div.row {
+  margin: 0.5rem 0;
+}
+
+#comentario {
+  display: none;
+}
+
+#coisas_legais {
+  display: none;
+  color: #000;
+  background: $cor_background;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+
+  p {
+    margin: 0;
+  }
+
+  .exemplo{
+    padding:  3px 5px;
+    background: $cor_background_destaque;
+  }
+}
+
+#contador {
+  position: absolute;
+  text-transform: none;
+  bottom: -15px;
+  border-radius: 4px;
+  background: $cor_background;
+  padding: .4rem;
+  font-size: .7em;
+}
+
+
+.conf{
+  margin-top: 10px; 
+  border: 1px solid $cor_linhas;
+  border-radius: 4px;
+  padding: 10px;
+  display: inline-block;
+}
+
+.opc{
+  cursor: pointer;
+  padding: .4rem;
+}
+
+.escolhido{
+  background: $cor_background;
+  padding: 2px 4px;
+  text-transform: none;
+  border-radius: 4px;
+}
+
+.conf_opc{
+  display: none;
+
+}
+
+.btn_menor{
+  @extend .conf;
+  padding: 1px 4px;
+}
+
+// Estiliza as opções de texto
+.nowrap {
+  white-space: nowrap;
+}
+
+.img_ex {
+  width: 128px;
+  height: auto;
+  display: inline;
+}
+
+/* IMPORTA OS ESTILOS QUE ALTERAM
+ * O TEXTO E GERAM IMAGEM
+ */
+
+@import "cv";

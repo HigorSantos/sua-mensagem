@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Imagens fantásticas com suas frases!">
+<meta name="author" content="Higor Santos">
+<meta property="og:url" content="https://higorsantos.github.io/sua-mensagem">
+<meta property="og:title" content="Sua Mensagem Fantástica">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://higorsantos.github.io/sua-mensagem/img/fotolindona.jpg">
+<meta property="og:description" content="Imagens fantásticas com suas frases! E estamos no facebook: https://fb.me/suamensagemlinda/">
+<title>Sua Mensagem Fantástica</title>
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="css/skeleton.min.css">
+<link rel="stylesheet" href="css/normalize.min.css">
+<link rel="stylesheet" href="css/pagina.min.css">
+<link href="https://fonts.googleapis.com/css?family=Space+Mono|Caveat|Oswald|Poiret+One|Bungee+Shade" rel="stylesheet" media="none" onload='"all"!=media&&(media="all")'>
+<link href="https://fonts.googleapis.com/css?family=Special+Elite|Megrim|Cormorant|Amatic+SC" rel="stylesheet" media="none" onload='"all"!=media&&(media="all")'>
+<link href="css/background.min.css" rel="stylesheet" media="none" onload='"all"!=media&&(media="all")'>
+</head>
+<body>
+<div id="fb-root"></div>
+<script>!function(e,t,n){var o,c=e.getElementsByTagName(t)[0];e.getElementById(n)||(o=e.createElement(t),o.id=n,o.src="//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=1241288265961400",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk")</script>
+<header>
+<h1 class="limit-min-max">Sua Mensagem</h1>
+<h2 class="limit-min">Seja criativo e nós geramos uma imagem lindona</h2>
+</header>
+<div class="container">
+<div class="row">
+<div class="eleven columns">
+<div class="row">
+<div style="position:relative">
+<textarea class="u-full-width" id="texto" placeholder="Comece escrevendo alguma coisa aqui"></textarea>
+<div id="contador" class="space_mono u-cf"></div>
+</div>
+<h6 class="descr" style="margin-top:15px">[<a href="#" id="det_coisas_legais">Ah, olha o que da pra fazer de legal!</a>]</h6>
+<div id="coisas_legais" class="u-full-width">
+<span class="exemplo">&lt;3 vira <span style="font-size:1.4em">&#9829;</span></span>
+<span class="exemplo">&lt;,3 se torna &#128148;</span>
+<span class="exemplo">:) <span style="font-size:1.5em">&#9786;</span></span>
+<span class="exemplo">:( &#9785;</span>
+<p>O que estiver entre # (cerquila) <span class="inverte">#é destacado#</span></p>
+<p>E olha esses exemplo =D</p>
+<p>
+<img class="img_ex1 img_ex">
+<img class="img_ex2 img_ex">
+</p>
+</div>
+</div>
+<div class="row">
+<h6 class="descr">Clique nos <span class="btn_menor">botões</span> para editar</h6>
+<div class="conf">
+<span id="conf_font" class="opc">Fonte: <span class="escolhido oswald" id="fonte_escolhida">Oswald</span></span>
+<div class="conf_opc conf_font">
+<span class="nowrap">
+<input type="radio" name="fonte" id="space_mono" value="space_mono">
+<label for="space_mono" class="space_mono">Space Mono</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="fonte" id="caveat" value="caveat">
+<label for="caveat" class="caveat">Caveat</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="fonte" id="poiret_one" value="poiret_one">
+<label for="poiret_one" class="poiret_one">Poiret One</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="fonte" id="oswald" value="oswald" checked>
+<label for="oswald" class="oswald">Oswald</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="fonte" id="bungee_shade" value="bungee_shade">
+<label for="bungee_shade" class="bungee_shade">Bungee Shade</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="fonte" id="special_elite" value="special_elite">
+<label for="special_elite" class="special_elite">Special Elite</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="fonte" id="megrim" value="megrim">
+<label for="megrim" class="megrim">Megrim</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="fonte" id="cormorant" value="cormorant">
+<label for="cormorant" class="cormorant">Cormorant</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="fonte" id="amatic_sc" value="amatic_sc">
+<label for="amatic_sc" class="amatic_sc">Amatic SC</label>
+</span>
+</div>
+</div>
+<div class="conf">
+<span id="conf_forca" class="opc">Força: <span class="escolhido forca_normal" id="forca_escolhida">Texto Normal</span></span>
+<div class="conf_opc conf_forca">
+<span class="nowrap">
+<input type="radio" name="forca" id="forca_normal" value="forca_normal" checked>
+<label for="forca_normal" class="forca_normal">Texto Normal</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="forca" id="bem_forte" value="bem_forte">
+<label for="bem_forte" class="bem_forte">Texto em Negrito</label>
+</span>
+</div>
+</div>
+<div class="conf">
+<span id="conf_ecrita" class="opc">Escrita: <span class="escolhido escrita_maiuscula" id="escrita_escolhida">MAIÚSCULAS</span></span>
+<div class="conf_opc conf_ecrita">
+<span class="nowrap">
+<span class="nowrap">
+<input type="radio" name="escrita" id="escrita_maiuscula" value="escrita_maiuscula" checked>
+<label for="escrita_maiuscula" class="escrita_maiuscula">MAIÚSCULAS</label>
+</span>
+<input type="radio" name="escrita" id="escrita_normal" value="escrita_normal">
+<label for="escrita_normal" class="escrita_normal">Como digitado</label>
+</span>
+</div>
+</div>
+<div class="conf">
+<span id="conf_fundo" class="opc">Fundo: <span class="escolhido bg_nao_quero" id="fundo_escolhida">Não quero</span></span>
+<div class="conf_opc conf_fundo">
+<span class="nowrap">
+<input type="radio" name="background" id="bg_nao_quero" value="bg_nao_quero" checked>
+<label for="bg_nao_quero" class="bg_nao_quero">Não quero</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="background" id="bg_small_steps" value="bg_small_steps">
+<label for="bg_small_steps" class="bg_small_steps bg">Small Steps</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="background" id="bg_stardust" value="bg_stardust">
+<label for="bg_stardust" class="bg_stardust bg">Stardust</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="background" id="bg_triangular" value="bg_triangular">
+<label for="bg_triangular" class="bg_triangular bg">Triangular</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="background" id="bg_dark_embroidery" value="bg_dark_embroidery">
+<label for="bg_dark_embroidery" class="bg_dark_embroidery bg">Dark Embroidery</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="background" id="bg_black_felt" value="bg_black_felt">
+<label for="bg_black_felt" class="bg_black_felt bg">Black Felt</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="background" id="bg_notebook" value="bg_notebook">
+<label for="bg_notebook" class="bg_notebook bg">Notebook</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="background" id="bg_grey_floral" value="bg_grey_floral">
+<label for="bg_grey_floral" class="bg_grey_floral bg">Grey Floral</label>
+</span>
+</div>
+</div>
+</div>
+<div class="conf">
+<span id="conf_formato" class="opc">Formato: <span class="escolhido bg_nao_quero" id="formato_escolhida">Quadrado</span></span>
+<div class="conf_opc conf_formato">
+<span class="nowrap">
+<input type="radio" name="formato" id="form_quadrado" value="form_quadrado" checked>
+<label for="form_quadrado" class="form_quadrado">Quadrado</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="formato" id="form_retangular" value="form_retangular">
+<label for="form_retangular" class="form_retangular">Retangular</label>
+</span>
+</div>
+</div>
+<div class="row">
+<div class="conf">
+<input type="checkbox" name="exibe_marca" id="exibe_marca">
+<label for="exibe_marca">Não quero que tenha a URL no canto da imagem para mostrar onde fiz essa imagem fantástica.</label>
+</div>
+</div>
+<div class="row">
+<button class="button-primary" id="btn_gera_imagem">Gerar imagem fenomenal!</button>
+</div>
+<div class="row">
+<div id="bloco" class="space_mono forca_normal escrita_maiuscula form_quadrado">
+<span id="marca" class="space_mono">bit.ly/suamensagem</span>
+<a id="casulo" href="#"><span id="onde"></span></a>
+</div>
+</div>
+<div class="row u-cf">
+<img id="imagem_final" class="form_quadrado">
+<div id="comentario">
+<em class="u-cf">Se tiver no celular, só tocar (segurar) e compartilhar!</em>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<p>
+<a href="https://www.facebook.com/suamensagemlinda/" style="margin:auto 0"><span>Ei, estamos no Facebook </span><img style="vertical-align:middle" src="img/FB-f-Logo__blue_29.png"></a>
+</p>
+<p>
+Mas, você pode compartilhar só o site com os amigos.
+</p><div class="fb-share-button" data-href="http://higorsantos.github.io/sua-mensagem/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fhigorsantos.github.io%2Fsua-mensagem%2F&amp;src=sdkpreparse">Compartilhar</a></div>
+<p></p>
+<p style="margin:1rem 0">Quem fez tudo isso? Eu, Higor Santos do <a href="http://hinfos.com" target="_blank">Hinfos.com</a>.</p>
+<p style="font-weight:700;margin:1.5rem 0">Alguns créditos:</p>
+<p>As imagens de fundo que deixam tudo ainda mais bonito, são do site <a href="https://subtlepatterns.com" target="_blank">Subtle Patterns</a>.</p>
+<p>Mais algumas coisas que utilizei, junto com o código disso aqui, você consegue no <a href="https://github.com/HigorSantos/sua-mensagem">meu GitHub</a>. Pode ir lá, uso "The MIT License". :)</p>
+<p style="margin:1rem 0"><em>Ah, caso você esteja usando um navegador antigo e alguma coisa saia fora do controle, peço perdão pelo vacilo!</em></p>
+<p style="text-align:center">Alpha 0.51</p>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="js/html2canvas.min.js"></script>
+<script src="js/cv.min.js"></script>
+<script>!function(e,t,a,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=t.createElement(a),s=t.getElementsByTagName(a)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-90332718-1","auto"),ga("send","pageview")</script>
+</body>
+</html>

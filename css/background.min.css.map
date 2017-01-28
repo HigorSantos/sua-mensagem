@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAOA,QAAQ,CACP,OAAO,CAAE,OAAO,CAChB,UAAU,CAAE,GAAG,CAYhB,eAAe,CACd,gBAAgB,CAAE,+OAA+O,CAGlQ,YAAY,CACX,gBAAgB,CAAE,24XAA24X,CAC75X,KAAK,CATQ,OAAO,CAYrB,cAAc,CACb,gBAAgB,CAAE,uvgEAAuvgE,CAG1wgE,mBAAmB,CAClB,gBAAgB,CAAE,2ZAA2Z,CAC7a,KAAK,CAlBQ,OAAO,CAqBrB,cAAc,CACb,gBAAgB,CAAE,uuzEAAuuzE,CACzvzE,KAAK,CAvBQ,OAAO,CA0BrB,YAAY,CACX,gBAAgB,CAAE,mu0IAAmu0I,CAGtv0I,eAAe,CACd,gBAAgB,CAAE,mjQAAmjQ",
+"sources": ["../sass/background.sass"],
+"names": [],
+"file": "background.min.css"
+}

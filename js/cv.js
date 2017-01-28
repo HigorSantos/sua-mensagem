@@ -10,7 +10,7 @@
 	var modo_debug = false;
 
 	var iniciador = {
-		fonte:"space_mono", 
+		fonte:"oswald", 
 		forca:"forca_normal", 
 		escrita:"escrita_maiuscula",
 		sombra:"",

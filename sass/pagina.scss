@@ -10,6 +10,7 @@ $cor_linha_escura: #C5CAE9;
 $cor_background: #ECEFF1;
 $cor_background_destaque: #CFD8DC;
 $cor_background_escuro: #455A64;
+$cor_background_info: #1abc9c;
 
 body{
   font-size: 1.45em;
@@ -177,6 +178,16 @@ div.row {
   width: 128px;
   height: auto;
   display: inline;
+}
+
+.informa{
+  background: $cor_background_info;
+  border-radius: 4px;
+  color: #fff;
+  padding: 5px 5px;
+  display: block;
+  margin-top: 5px;
+  white-space: normal;
 }
 
 /* IMPORTA OS ESTILOS QUE ALTERAM

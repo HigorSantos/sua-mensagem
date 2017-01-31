@@ -1,5 +1,5 @@
 /**
- * v0.5
+ * v0.51
  */
 (function(){
 "use strict";
@@ -8,6 +8,7 @@
 	* Define o modo de execução
 	 */
 	var modo_debug = false;
+	var modo_debub_rapido = false;
 
 	var iniciador = {
 		fonte:"oswald", 
@@ -15,17 +16,19 @@
 		escrita:"escrita_maiuscula",
 		sombra:"",
 		background:"none",
-		formato:"form_quadrado"
+		formato:"form_quadrado",
+		borda:"borda_sem"
 	};
 
 	if (modo_debug){
 		iniciador = {
-			fonte:"cormorant", 
+			fonte:"oswald", 
 			forca:"forca_normal", 
 			escrita:"escrita_maiuscula",
 			sombra:"sombra",
 			background:"none",
-			formato:"form_quadrado"
+			formato:"form_quadrado",
+			borda:"borda_sem"
 		};
 	}
 
@@ -37,13 +40,15 @@
     	classe_destaque_texto	= "inverte",
     	classe_background 		= iniciador.background,
     	classe_formato 			= iniciador.formato,
+    	classe_borda 			= iniciador.borda,
     	//canvas_imagem = $("<canvas/>") ,
     	canvas_url_data = "",
     	nome_arquivo 	= "imagem_fantastica.png" ,
 		fntSz 			= 120,
 		mm_contador		= 180,
 		span_contator	= $("#contador"),
-		span_carregando	= $("<span/>").append($("<em/>").text("Carregando...")).css("display","none");
+		span_carregando	= $("<span/>").append($("<em/>").text("Carregando...")).css("display","none"),
+		contador_erro	= 0;
 
 	/* Inicia os elementos */
     $("#imagem_final").attr("src","");
@@ -56,6 +61,7 @@
     $("#"+classe_forca).attr("checked","checked");
     $("#"+classe_escrita).attr("checked","checked");
 
+    //Inicia campo que mostra o contador de caracteres
     span_contator.text("0/" + mm_contador);
 
     /* 
@@ -69,8 +75,17 @@
 		var hRatio = bloco_interno.outerHeight() / winH;
 
 		if (wRatio==null || winW==null){
-			alert("Eita que deu erro. :(")
+			alert("Eita, deu erro. :(");
+
+			contador_erro++;
 			return false;
+		}
+
+		if (modo_debug){
+			console.log	("winW: "  + winW);
+			console.log	("wRatio: "  + wRatio);
+			console.log	("outerWidth: "  + bloco_interno.outerWidth());
+			console.log	("outerHeight: "  + bloco_interno.outerHeight());
 		}
 
 		if( wRatio <= 1 ){
@@ -78,7 +93,7 @@
 			while( bloco_interno.outerWidth() < winW  ){
 				
 				if (modo_debug){
-					console.log("outerWidth < winH");
+					console.log("outerWidth < winW");
 				}
 
 				fntSz++;
@@ -123,6 +138,9 @@
 			}
 		}
 
+		bloco_interno.css( 'top', (winH - bloco_interno.outerHeight()) / 2 );
+		bloco_interno.css( 'left', (winW - bloco_interno.outerWidth()) / 2 );
+
 		if (modo_debug){
 			console.log("FIM SCALE");
 		}
@@ -137,6 +155,7 @@
 	*/
 	$( "#btn_gera_imagem" ).on( "click", function() {
 		var bloco = $("#bloco");
+		var bloco_a = $("#bloco a");
 		var onde = $("#onde");
 		var txt = $("#texto");
 
@@ -154,6 +173,7 @@
 		//Faz algumas substituições de texto para html
 		texto = texto.replace(/\n/g,'<br/>');
 		texto = texto.replace(/' '/g,'&nbsp;');
+		texto = texto.replace(/-----/g,'<hr/>');
 
 		/*Destaca o texto entre cerquilha*/
 		var primeira_ocor_cerquilha = texto.indexOf("#");
@@ -184,26 +204,27 @@
 		span_carregando.fadeIn();
 
 		/*Deixa o texto do tamanho correto*/
-		if (scaleText(bloco, onde)){ //Se der tudo certo, gera a imagem.
+		if (scaleText(bloco_a, onde)){ //Se der tudo certo, gera a imagem.
 
 			/* Gera canvas pra pegar imagem */
-			html2canvas(bloco, {
-			  background: '#fff',
-			  logging:modo_debug,
+			if (!modo_debub_rapido){
+				html2canvas(bloco, {
+				  background: '#fff',
+				  logging:modo_debug,
 
-			  onrendered: function(canvas_imagem) {
-			  	canvas_url_data = canvas_imagem.toDataURL("image/png",0.9);
+				  onrendered: function(canvas_imagem) {
+				  	canvas_url_data = canvas_imagem.toDataURL("image/png",0.9);
 
-			    $("#imagem_final").attr("src", canvas_url_data );
-			   
-			    if (!modo_debug){
-			    	$("#imagem_final").css("display", "block");/*debug*/
-			    }
+				    $("#imagem_final").attr("src", canvas_url_data );
+				   
+				    if (!modo_debug){
+				    	$("#imagem_final").css("display", "block");/*debug*/
+				    }
 
-				$("#comentario").fadeIn();
-			  }
-			});
-
+					$("#comentario").fadeIn();
+				  }
+				});
+			}
 		}//FIM:scale
 		span_carregando.fadeOut();
 
@@ -222,6 +243,7 @@
 
     	//Limpa bloco de texto
     	$("#onde").text("");
+    	$("#bloco").removeClass();
 
     	/* Trada alteração na fonte */
 		if ($(this).attr("name")=='fonte'){
@@ -268,6 +290,25 @@
 			adiciona_classes_opc($("#formato_escolhida"),classe_formato);
 		}
 
+		//Adiciona borda
+		if ($(this).attr("name")=='borda'){
+			classe_borda = $(this).val();
+
+			adiciona_classes_especial($("#bloco a"), classe_borda);
+
+			adiciona_classes_opc($("#borda_escolhida"),classe_borda);
+
+			//Se tiver borda ativa um margin diferente para a marca
+			if(classe_borda=="borda_com"){
+				adiciona_classes_especial($("#marca"),"space_mono marca_com_borda");
+
+				//Mostra mensagem
+				$("#informa_borda").fadeIn().delay(8000).slideUp();
+			}else{
+				adiciona_classes_especial($("#marca"),"space_mono marca_sem_borda");
+			}
+		}
+
 		/*--------------
 		* Exibe / mostra URL como "marca" da imagem no canto inferior
 		 */
@@ -295,11 +336,21 @@
 					.addClass(classe_formato);
     }
 
+    /*Adiciona classes as opções selecionadas*/
     function adiciona_classes_opc(obj, classe){
 		obj.text($("label."+classe).text())
 	    	.removeClass()
 	    	.addClass(classe)
 	    	.addClass("escolhido");
+    }
+
+    /*
+    * Adiciona as classes que estilizam algum outro elemento
+     */
+    function adiciona_classes_especial(obj,classe){
+
+		obj.removeClass();
+		obj.addClass(classe);
     }
 
     /*

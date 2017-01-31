@@ -1,7 +1,9 @@
 /* Estilos para p├ígina principal e gera├º├úo da imagem
- * v0.4
+ * v0.5
  * ------
  * cz.sass */
+
+$DEBUG:0;
 
 $cor_marca: #7f8c8d;
 $tamanho_inicia_fonte: 120px;
@@ -11,40 +13,47 @@ $largura_maxima: 800px;
 $tamanho_imagem_final: $largura_maxima;
 $altura_maxima: $largura_maxima;
 $altura_retangular: 300px;
+$cor_linhas: #bdc3c7;
+$cor_linhas_escuras: #34495e;
 
 @import "classe_fonte";
 
 #bloco {
   margin-top: 10px;
-
-  display:	none; /*debug */
+  padding:    0;
   vertical-align: middle;
-  font-size: $tamanho_inicia_fonte;
-  position: absolute;
-  overflow: hidden;
-  //zoom: 55%;
+  font-size:  $tamanho_inicia_fonte;
+  position:   absolute;
+  overflow:   hidden;
 
-  /*debug*/ /*background: #16a085 */
+  @if $DEBUG==0 {display: none; /*debug */}
+  @if $DEBUG==1 {zoom: 55%;}
+  @if $DEBUG==1 {background: #16a085}
 }
 
 #bloco a {
-  display: block;
-  height: calc(100% - 20px);
-  width: calc(100% - 20px);
+  display:  block;
+  height:   calc(100% - 40px);
+  width:    calc(100% - 40px);
   text-decoration: none;
-  color: inherit;
+  color:    inherit;
   text-align: center;
-  margin: 0px;
+  margin:   20px;
+  cursor:   text;
+  padding:  0;
+
+  @if $DEBUG==1 {background: #ddd}
 }
 
 #onde {
-  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 20px 10px;
   position: relative;
-  padding: 20px 0;
   line-height: 1;
   z-index: 1;
-
-  /*debug*//*background: #1abc9c */
+  height: 100%;
+  @if $DEBUG==1 {background: #f00; /*debug */}
 }
 
 .inverte {
@@ -64,8 +73,6 @@ $altura_retangular: 300px;
   font-weight: 400;
   position: absolute;
   text-transform: none;
-  bottom: 0;
-  right: 5px;
   z-index: 2;
 }
 
@@ -90,8 +97,8 @@ $altura_retangular: 300px;
 
 // Quadrado*
 .form_quadrado {
-  height: $altura_maxima;
   width: $largura_maxima;
+  height: $altura_maxima;
 }
 
 img.form_quadrado {
@@ -107,4 +114,38 @@ img.form_quadrado {
 img.form_retangular {
   max-width: 98%;
   height: auto;
+}
+
+/* Adiciona borda à imagem */
+.borda_sem{
+  border: none;
+}
+.borda_com{
+  border: 1px solid $cor_linhas;
+  padding: 2px 2px;
+}
+.borda_com_escura{
+  border: 1px solid $cor_linhas_escuras;
+}
+//Posiciona a marca de maneira diferenciada
+//quando tiver bordar
+.marca_com_borda{
+  bottom: 17px;
+  right:  22px;
+}
+.marca_sem_borda{
+  bottom: 0;
+  right: 5px;
+}
+
+/*Linha no meio*/
+#onde{
+  hr{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5em;
+    margin-bottom: -0.5em;
+    border:1px solid $cor_linhas;
+  }
 }

@@ -120,7 +120,7 @@
 </div>
 <div class="conf">
 <span id="conf_fundo" class="opc">Fundo: <span class="escolhido bg_nao_quero" id="fundo_escolhida">Não quero</span></span>
-<div class="conf_opc conf_fundo">
+<div class="conf_opc conf_fundo" style="margin-top:5px">
 <span class="nowrap">
 <input type="radio" name="background" id="bg_nao_quero" value="bg_nao_quero" checked>
 <label for="bg_nao_quero" class="bg_nao_quero">Não quero</label>
@@ -157,8 +157,22 @@
 </div>
 </div>
 <div class="conf">
-<span id="conf_formato" class="opc">Formato: <span class="escolhido bg_nao_quero" id="formato_escolhida">Quadrado</span></span>
-<div class="conf_opc conf_formato">
+<span id="conf_formato" class="opc">Borda: <span class="escolhido borda_sem" id="borda_escolhida">Não quero</span></span>
+<div class="conf_opc conf_formato" style="margin-top:5px">
+<span class="nowrap">
+<input type="radio" name="borda" id="borda_sem" value="borda_sem" checked>
+<label for="borda_sem" class="borda_sem">Não quero</label>
+</span>
+<span class="nowrap">
+<input type="radio" name="borda" id="borda_com" value="borda_com">
+<label for="borda_com" class="borda_com">Com borda</label>
+<span id="informa_borda" class="informa" style="display:none">A borda fica muito boa com um dos fundos escuros! ;)</span>
+</span>
+</div>
+</div>
+<div class="conf">
+<span id="conf_borda" class="opc">Formato: <span class="escolhido bg_nao_quero" id="formato_escolhida">Quadrado</span></span>
+<div class="conf_opc conf_borda">
 <span class="nowrap">
 <input type="radio" name="formato" id="form_quadrado" value="form_quadrado" checked>
 <label for="form_quadrado" class="form_quadrado">Quadrado</label>
@@ -180,7 +194,7 @@
 </div>
 <div class="row">
 <div id="bloco" class="space_mono forca_normal escrita_maiuscula form_quadrado">
-<span id="marca" class="space_mono">bit.ly/suamensagem</span>
+<span id="marca" class="space_mono marca_sem_borda">bit.ly/suamensagem</span>
 <a id="casulo" href="#"><span id="onde"></span></a>
 </div>
 </div>
@@ -206,7 +220,7 @@ Mas, você pode compartilhar só o site com os amigos.
 <p>As imagens de fundo que deixam tudo ainda mais bonito, são do site <a href="https://subtlepatterns.com" target="_blank">Subtle Patterns</a>.</p>
 <p>Mais algumas coisas que utilizei, junto com o código disso aqui, você consegue no <a href="https://github.com/HigorSantos/sua-mensagem">meu GitHub</a>. Pode ir lá, uso "The MIT License". :)</p>
 <p style="margin:1rem 0"><em>Ah, caso você esteja usando um navegador antigo e alguma coisa saia fora do controle, peço perdão pelo vacilo!</em></p>
-<p style="text-align:center">Alpha 0.51</p>
+<p style="text-align:center">Alpha 0.52</p>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="js/html2canvas.min.js"></script>

@@ -243,7 +243,6 @@
 
     	//Limpa bloco de texto
     	$("#onde").text("");
-    	$("#bloco").removeClass();
 
     	/* Trada alteração na fonte */
 		if ($(this).attr("name")=='fonte'){

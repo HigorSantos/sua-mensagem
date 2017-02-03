@@ -9,6 +9,7 @@
 	 */
 	var modo_debug = false;
 	var modo_debub_rapido = false;
+	var modo_debug_compart = true;
 
 	var iniciador = {
 		fonte:"oswald", 
@@ -32,6 +33,17 @@
 		};
 	}
 
+	var conversions = {
+	  stringToBinaryArray: function(string) {
+	    return Array.prototype.map.call(string, function(c) {
+	      return c.charCodeAt(0) & 0xff;
+	    });
+	  },
+	  base64ToString: function(b64String) {
+	    return atob(b64String);
+	  }
+	};
+
     var 
     	classe_fonte 			= iniciador.fonte,
     	classe_forca 			= iniciador.forca ,
@@ -41,7 +53,7 @@
     	classe_background 		= iniciador.background,
     	classe_formato 			= iniciador.formato,
     	classe_borda 			= iniciador.borda,
-    	//canvas_imagem = $("<canvas/>") ,
+    	//canvas_imagem = $("<canvas/>").attr("id","canvas_imagem") ,
     	canvas_url_data = "",
     	nome_arquivo 	= "imagem_fantastica.png" ,
 		fntSz 			= 120,
@@ -154,6 +166,7 @@
 	* Disponibiliza para o usuário
 	*/
 	$( "#btn_gera_imagem" ).on( "click", function() {
+
 		var bloco = $("#bloco");
 		var bloco_a = $("#bloco a");
 		var onde = $("#onde");
@@ -164,6 +177,10 @@
 		}
 
 		bloco.css("display","table-cell");
+
+		//Função que esconde os objetos que compratilharm a imagem
+		// no facebook
+		esconde_compartilha_facebook(true);
 
 		/*Limpa o que existe e coloca novo texto*/
 		onde.text("");
@@ -214,7 +231,7 @@
 
 				  onrendered: function(canvas_imagem) {
 				  	canvas_url_data = canvas_imagem.toDataURL("image/png",0.9);
-
+				  
 				    $("#imagem_final").attr("src", canvas_url_data );
 				   
 				    if (!modo_debug){
@@ -231,6 +248,15 @@
 		if (!modo_debug){
 			bloco.css("display","none");/*debug*/
 		}
+
+		//Vai para a imagem
+		if (!modo_debug){
+			console.log("Posição imagem: " + $( "#ponto_imagem" ).offset().top);
+		}
+
+	    $('html, body').animate({
+	        scrollTop: $( "#ponto_imagem" ).offset().top
+	    }, 500);
 
 	});//FIM:btn_gera_imagem(click)
 
@@ -422,8 +448,288 @@
     	}
     })();
 
-	/*
-	* FIM
-	*/
+    /**
+	* Esconde os objetos utilizados
+	* usados para compartilhar imagem no facebook
+    */
+    function esconde_compartilha_facebook(parcial){
 
+    	$("#descricao_imagem_fb").val();
+    	$("#objetos_compartilha").slideUp();
+
+    	if (parcial==true){
+    		$("#comentario").slideUp();
+    	}
+    }
+
+
+    /**
+	* Exibe os objetos utilizados
+	* usados para compartilhar imagem no facebook
+    */
+    $( "#inicia_compartilhar_facebook" ).on( "click", function() {
+    	$("#objetos_compartilha").slideDown();
+    });
+
+
+    /*
+	* Exibe 
+    */
+
+    /*
+    * -----------------
+    * Carrega as coisas do facebook
+    */
+	$.ajaxSetup({ cache: true });
+	$.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+		FB.init({
+		  appId: '1241288265961400',
+		  version: 'v2.8' // or v2.1, v2.2, v2.3, ...
+		});     
+		$('#loginbutton,#feedbutton').removeAttr('disabled');
+		//FB.getLoginStatus(updateStatusCallback);
+	});
+
+	$( "#envia_imagem_facebook" ).on( "click", function() {
+
+		//Onde serão exibidas as mensagens
+		var sp_info_compartilha = $("#informa_compartilha");
+		var sp_informa_msg = $("#informa_msg");
+
+		FB.login(function(response) {
+
+			if (response.authResponse) {
+				if(modo_debug_compart){
+					console.log('Logado. Pegando informações');
+				}
+
+				FB.api('/me', function(response) {
+					var nome_usuario = response.name;
+
+					if(modo_debug_compart){
+						console.log(response);
+						console.log('Olá, ' + response.name + '.');
+					}
+
+					var auth_response = FB.getAuthResponse();
+
+					//Verifica se a autorização permite postar
+					if(auth_response != null){
+						//Chama por callback lá no final
+						var envia_imagem = function(){
+							if (auth_response.grantedScopes.search(/publish_actions/)!=-1){
+
+								var data_image = canvas_url_data.replace(/^data:image\/(png|jpe?g);base64,/, '');
+								var str_base64_image = conversions.base64ToString(data_image);
+								var txt_descricao_imagem = "";
+
+								if ($("#descricao_imagem_fb")){
+									txt_descricao_imagem = $("#descricao_imagem_fb").val();
+								}
+
+								var DEFAULT_CALL_OPTS = {
+									url: 'https://graph.facebook.com/me/photos',
+									type: 'POST',
+									cache: false,
+									success: function(response) {
+												if (modo_debug_compart){
+													console.log(response);
+												}
+											},
+									error: function(e) {
+												if(modo_debug_compart){
+													console.error(e);
+												}
+											},
+									// Os dados serão processados na função lá embaixo
+									processData: false,
+									/**
+									*  Sobreescreve a função envia binario (não existem mais no navegador)
+									*/
+									xhr: function() {
+										var xhr = $.ajaxSettings.xhr();
+										xhr.send = function(string) {
+											var bytes = conversions.stringToBinaryArray(string);
+											XMLHttpRequest.prototype.send.call(this, new Uint8Array(bytes).buffer);
+										};
+										return xhr;
+									}
+								};
+
+								/**
+								* Cria um POST com os dados, de acordo com os padrões HTTP
+								* Dados processado aqui!
+								*/
+								var composeMultipartData = function(fields, boundary) {
+									var data = '';
+									$.each(fields, function(key, value) {
+										data += '--' + boundary + '\r\n';
+
+										if (value.dataString) { // file upload
+											data += 'Content-Disposition: form-data; name=\'' + key + '\'; ' +'filename=\'' + value.name + '\'\r\n';
+											data += 'Content-Type: ' + value.type + '\r\n\r\n';
+											data += value.dataString + '\r\n';
+										} else {
+											data += 'Content-Disposition: form-data; name=\'' + key + '\';' + '\r\n\r\n';
+											data += value + '\r\n';
+										}
+									});
+
+									data += '--' + boundary + '--';
+									return data;
+								};
+
+								/**
+								* It sets the multipart form data & contentType
+								*/
+								var setupData = function(callObj, opts) {
+								// custom separator for the data
+								var boundary = 'separator de campo ' + Math.random();
+
+								// set the data
+								callObj.data = composeMultipartData(opts.fb, boundary);
+
+								// .. and content type
+								callObj.contentType = 'multipart/form-data; boundary=' + boundary;
+								};
+
+								//Metodo que chama o post
+								var postImage = function(opts) {
+
+									// create the callObject by combining the defaults with the received ones
+									var callObj = $.extend({}, DEFAULT_CALL_OPTS, opts.call);
+
+									// append the access token to the url
+									callObj.url += '?access_token=' + opts.fb.accessToken;
+
+									// set the data to be sent in the post (callObj.data = *Magic*)
+									setupData(callObj, opts);
+
+									// POST the whole thing to the defined FB url
+									$.ajax(callObj);
+								};
+
+								postImage({
+									fb: { // data to be sent to FB
+										caption: txt_descricao_imagem,
+										/* place any other API params you wish to send. Ex: place / tags etc.*/
+										accessToken: FB.getAccessToken(),
+										file: {
+											name: 'sua_mensagem.png',
+											type: 'image/png',
+											dataString: str_base64_image
+										}
+									},
+									call: { // options of the $.ajax call
+										url: 'https://graph.facebook.com/me/photos',
+										success: function(dados){//resposta final aqui
+											exibe_mensagem(
+												"Imagem compartilhada!!",
+												sp_info_compartilha,
+												"informa",
+												8000
+												);
+
+											//Esconde os campos de compartilhamento
+											esconde_compartilha_facebook(false);
+
+											if (modo_debug_compart){
+												console.log(dados);
+											}
+										},
+										error: function(e){
+											exibe_mensagem(
+												"Ocorreu um erro ao compartilhar. :( Se estiver no celular, clique e segure na imagem para compartilhar diretamente pelo celular.",
+												sp_info_compartilha,
+												"informa_erro",
+												15000
+												);
+
+											if (modo_debug_compart){
+												console.log(e);
+											}
+										},
+									}
+								});
+
+							}else{
+								exibe_mensagem(
+									"Você não autorizou o Sua Mensagem a postar no seu perfil. Se desejar, clique novamente em Compartilhar Imagem.",
+									sp_info_compartilha,
+									"informa_atencao",
+									12000
+									);
+							}
+						};//FIM envia_imagem()
+
+						/*Exibe o aguarde e chama função de envio acima*/
+						exibe_mensagem(
+							"Enviando imagem para o Facebook. Aguarde, por favor.",
+							sp_informa_msg,
+							"informa_msg",
+							0,
+							envia_imagem
+							);
+					}else{
+						exibe_mensagem(
+							"Você não autorizou o Sua Mensagem a postar no seu perfil. Se desejar, clique novamente em Compartilhar Imagem.",
+							sp_info_compartilha,
+							"informa_atencao",
+							12000
+							);
+					}
+
+				});//FIM FB.api('/me'
+				
+			} else {
+				exibe_mensagem(
+					"Você não está logado no Facebook. Se desejar, clique novamente em Compartilhar Imagem.",
+					sp_info_compartilha,
+					"informa_atencao",
+					12000
+					);
+			}
+
+			//Some com mensagem de aguarde.
+			/*sp_informa_msg.text("");
+			sp_informa_msg.slideUp()*/
+		}, {
+			scope: 'publish_actions',
+			return_scopes: true
+		});
+  
+	});//FIM função
+	
+	/*
+	* Exibe uma mensagem
+	* @param texto A mensagem
+	* @param onde O objeto jQuery. Não pode ser campo de form
+	* @param classe A(s) classe(s) que devem ser adicionadas
+					se mais de uma, separar por virgula
+	* @param delay Em milisegundos quando tempo para desaparecer.
+					Se zero, não desaparece
+	*/
+	function exibe_mensagem(texto, onde, classe, delay, callback){
+		
+		if(callback!=null){
+			onde
+				.removeClass()
+				.text(texto)
+				.addClass(classe)
+				.slideDown(200, 
+							callback());
+		}else{
+			onde
+				.removeClass()
+				.text(texto)
+				.addClass(classe)
+				.slideDown();
+
+			if (delay>0){
+				onde.delay(delay)
+					.slideUp();
+			}
+		}
+
+	}
 }(self));

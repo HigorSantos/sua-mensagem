@@ -9,8 +9,11 @@ $cor_linhas: #bdc3c7;
 $cor_linha_escura: #C5CAE9;
 $cor_background: #ECEFF1;
 $cor_background_destaque: #CFD8DC;
-$cor_background_escuro: #455A64;
-$cor_background_info: #1abc9c;
+$cor_background_escuro:   #455A64;
+$cor_background_info:     #1abc9c;
+$cor_background_erro:     #e74c3c;
+$cor_background_atencao:  #e67e22;
+$cor_background_msg:  #2980b9;
 
 body{
   font-size: 1.45em;
@@ -89,7 +92,6 @@ textarea {
   height: 100px;
 }
 
-
 footer {
   @extend header;
 
@@ -108,6 +110,7 @@ div.row {
 
 #comentario {
   display: none;
+  margin-top: 15px;
 }
 
 #coisas_legais {
@@ -190,8 +193,37 @@ div.row {
   white-space: normal;
 }
 
+.informa_erro{
+  background: $cor_background_erro;
+  border-radius: 4px;
+  color: #fff;
+  padding: 5px 5px;
+  display: block;
+  margin-top: 5px;
+  white-space: normal;
+}
+
+.informa_atencao{
+  background: $cor_background_atencao;
+  border-radius: 4px;
+  color: #fff;
+  padding: 5px 5px;
+  display: block;
+  margin-top: 5px;
+  white-space: normal;
+}
+
+.informa_msg{
+  background: $cor_background_msg;
+  border-radius: 4px;
+  color: #fff;
+  padding: 2px 5px;
+  display: block;
+  margin-top: 5px;
+  white-space: normal;
+}
+
 /* IMPORTA OS ESTILOS QUE ALTERAM
  * O TEXTO E GERAM IMAGEM
  */
-
 @import "cv";

@@ -20,6 +20,7 @@ http://www.sabinanore.com/design/html-special-symbols/
 
 https://eduardoboucas.com/blog/2015/06/18/viewport-sized-typography-with-minimum-and-maximum-sizes.html
 
+Esse link me ajudou demais! [http://stackoverflow.com/questions/4999024/facebook-graph-api-upload-photo-using-javascript]
 
 ## Licença
 

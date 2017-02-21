@@ -388,10 +388,15 @@
         inputStr = inputStr.slice(0, mm_contador);
         $(this).val( inputStr );
 
+
+        $(this).addClass("alerta_erro");
+
         span_contator.text("Sem textão!!")
-        			.fadeOut(2000,function(){
+        			.fadeOut(2500,function(){
         				span_contator.text(inputStr.length + "/" + mm_contador);
-        			}).fadeIn();
+        			}).fadeIn(300,function(){
+        				$('textarea').removeClass("alerta_erro");
+        			});
       }else{
       	span_contator.text(inputStr.length + "/" + mm_contador);
       }

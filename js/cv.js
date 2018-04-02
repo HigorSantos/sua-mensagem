@@ -1,5 +1,5 @@
 /**
- * v0.51
+ * v0.6
  */
 (function(){
 "use strict";
@@ -9,27 +9,29 @@
 	 */
 	var modo_debug = false;
 	var modo_debub_rapido = false;
-	var modo_debug_compart = true;
+	var modo_debug_compart = false;
 
 	var iniciador = {
-		fonte:"oswald", 
+		fonte:"work_sans", 
 		forca:"forca_normal", 
 		escrita:"escrita_maiuscula",
 		sombra:"",
-		background:"none",
+		background:"bg_circles_light",
 		formato:"form_quadrado",
-		borda:"borda_sem"
+		borda:"borda_sem",
+		alinhamento: "alinhamento_esquerda"
 	};
 
 	if (modo_debug){
 		iniciador = {
-			fonte:"oswald", 
+			fonte:"work_sans", 
 			forca:"forca_normal", 
 			escrita:"escrita_maiuscula",
 			sombra:"sombra",
-			background:"none",
+			background:"bg_stardust",
 			formato:"form_quadrado",
-			borda:"borda_sem"
+			borda:"borda_com",
+			alinhamento: "alinhamento_esquerda"	
 		};
 	}
 
@@ -53,6 +55,7 @@
     	classe_background 		= iniciador.background,
     	classe_formato 			= iniciador.formato,
     	classe_borda 			= iniciador.borda,
+    	classe_alinhamento		= iniciador.alinhamento,
     	//canvas_imagem = $("<canvas/>").attr("id","canvas_imagem") ,
     	canvas_url_data = "",
     	nome_arquivo 	= "imagem_fantastica.png" ,
@@ -60,7 +63,8 @@
 		mm_contador		= 180,
 		span_contator	= $("#contador"),
 		span_carregando	= $("<span/>").append($("<em/>").text("Carregando...")).css("display","none"),
-		contador_erro	= 0;
+		contador_erro	= 0,
+		classe_centraliza_texto	= "texto_destacado_alinhado_centro";
 
 	/* Inicia os elementos */
     $("#imagem_final").attr("src","");
@@ -211,6 +215,25 @@
 			texto = texto_auxiliar;
 		}
 		
+		/* CENTRALIZA TEXTO ENTRE % */
+		/*var primeira_ocor_porcentagem = texto.indexOf("%");
+		var ultima_ocor_porcentagem = texto.lastIndexOf("%");
+		//Verifica se sendo aberto e fechado
+		if (primeira_ocor_porcentagem != ultima_ocor_porcentagem){
+			//Inicia o texto e abre tag span
+			var texto_auxiliar = texto.substring(0, primeira_ocor_porcentagem);
+			texto_auxiliar += '<span class="' + classe_centraliza_texto + '">';
+
+			//Coloca o que estava entre as # e fecha tag span
+			texto_auxiliar += texto.substring(primeira_ocor_porcentagem+1,ultima_ocor_porcentagem);
+			texto_auxiliar += '</span>';
+			texto_auxiliar += texto.substring(ultima_ocor_porcentagem+1,texto.length);
+
+			//Substitui texto com o editado
+			texto = texto_auxiliar;
+		}*/
+		//------------------------
+
 		//Aqui, coloco algumas coisas legais no texto
 		texto = texto.replace(/<3/g,'&#9829;');
 		texto = texto.replace(/<\/3/g,'&#128148;').replace(/<,3/g,'&#128148;');
@@ -334,6 +357,20 @@
 			}
 		}
 
+		//Alinhamento do texto
+		if ($(this).attr("name")=='alinhamento'){
+			classe_alinhamento = $(this).val();
+			$("#imagem_final").removeClass().addClass(classe_alinhamento);
+
+			adiciona_classes_bloco();
+
+			adiciona_classes_opc($("#alinhamento_escolhido"),classe_alinhamento);
+
+			if (modo_debug){
+				console.log	("Alinhamento: "  + classe_alinhamento);
+			}
+		}
+
 		/*--------------
 		* Exibe / mostra URL como "marca" da imagem no canto inferior
 		 */
@@ -358,7 +395,8 @@
 					.addClass(classe_fonte)
 					.addClass(classe_sombra)
 					.addClass(classe_background)
-					.addClass(classe_formato);
+					.addClass(classe_formato)
+					.addClass(classe_alinhamento);
     }
 
     /*Adiciona classes as opções selecionadas*/
@@ -485,7 +523,7 @@
     * -----------------
     * Carrega as coisas do facebook
     */
-	$.ajaxSetup({ cache: true });
+	/*$.ajaxSetup({ cache: true });
 	$.getScript('//connect.facebook.net/en_US/sdk.js', function(){
 		FB.init({
 		  appId: '1241288265961400',
@@ -493,7 +531,7 @@
 		});     
 		$('#loginbutton,#feedbutton').removeAttr('disabled');
 		//FB.getLoginStatus(updateStatusCallback);
-	});
+	});*/
 
 	$( "#envia_imagem_facebook" ).on( "click", function() {
 

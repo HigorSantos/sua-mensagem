@@ -1,7 +1,11 @@
 /* Estilos para p├ígina principal e gera├º├úo da imagem
  * v0.5
  * ------
- * cz.sass */
+ * cz.sass 
+ --------
+COMPILAR O pagina.scss
+
+ */
 
 $DEBUG:0;
 
@@ -13,14 +17,14 @@ $largura_maxima: 800px;
 $tamanho_imagem_final: $largura_maxima;
 $altura_maxima: $largura_maxima;
 $altura_retangular: 300px;
-$cor_linhas: #bdc3c7;
+$cor_linhas: #7f8c8d;
 $cor_linhas_escuras: #34495e;
 
 @import "classe_fonte";
 
 #bloco {
   margin-top: 10px;
-  padding:    0;
+  //padding:    0; FIXME
   vertical-align: middle;
   font-size:  $tamanho_inicia_fonte;
   position:   absolute;
@@ -37,10 +41,10 @@ $cor_linhas_escuras: #34495e;
   width:    calc(100% - 40px);
   text-decoration: none;
   color:    inherit;
-  text-align: center;
+  //text-align: center; FIXME
   margin:   20px;
   cursor:   text;
-  padding:  0;
+  //padding:  0; //FIXME
 
   @if $DEBUG==1 {background: #ddd}
 }
@@ -131,11 +135,34 @@ img.form_retangular {
 .borda_com_escura{
   border: 1px solid $cor_linhas_escuras;
 }
+
+/* Alinha texto da imagem */
+.alinhamento_esquerda{
+  text-align: left;
+  #onde{
+    padding-left:30px;
+    padding-right:30px;
+  }
+}
+.alinhamento_centralizada{
+  text-align: center;
+  #onde{
+    padding: 20px 10px;
+  }
+}
+.alinhamento_direita{
+  text-align: right;
+  #onde{
+    padding-left:30px;
+    padding-right:30px;
+  }
+}
+
 //Posiciona a marca de maneira diferenciada
 //quando tiver bordar
 .marca_com_borda{
-  bottom: 17px;
-  right:  22px;
+  bottom: 18px;
+  right:  24px;
 }
 .marca_sem_borda{
   bottom: 0;
@@ -152,4 +179,9 @@ img.form_retangular {
     margin-bottom: -0.5em;
     border:1px solid $cor_linhas;
   }
+}
+
+.texto_destacado_alinhado_centro{
+  text-align: center;
+  margin:0 auto;
 }

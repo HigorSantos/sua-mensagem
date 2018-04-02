@@ -1,0 +1,152 @@
+@charset "UTF-8";
+/* Estilos para pÔö£├¡gina principal e geraÔö£┬║Ôö£├║o da imagem
+ * v0.5
+ * ------
+ * cz.sass */
+/* Estilos para as fontes
+ */
+.space_mono {
+  font-family: "Space Mono"; }
+
+.caveat {
+  font-family: "Caveat"; }
+
+.poiret_one {
+  font-family: "Poiret One"; }
+
+.oswald {
+  font-family: "Oswald"; }
+
+.bungee_shade {
+  font-family: "Bungee Shade"; }
+
+.special_elite {
+  font-family: "Special Elite"; }
+
+.megrim {
+  font-family: "Megrim"; }
+
+.cormorant {
+  font-family: "Cormorant"; }
+
+.amatic_sc {
+  font-family: "Amatic SC"; }
+
+#bloco {
+  margin-top: 10px;
+  padding: 0;
+  vertical-align: middle;
+  font-size: 120px;
+  position: absolute;
+  overflow: hidden;
+  display: none;
+  /*debug */ }
+
+#bloco a {
+  display: block;
+  height: calc(100% - 40px);
+  width: calc(100% - 40px);
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  margin: 20px;
+  cursor: text;
+  padding: 0; }
+
+#onde {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 20px 10px;
+  position: relative;
+  line-height: 1.2;
+  z-index: 1;
+  height: 100%; }
+
+.inverte {
+  background-color: #000;
+  color: #fff;
+  padding: 2px 5px; }
+
+#imagem_final {
+  display: none;
+  width: 800px; }
+
+#marca {
+  color: #7f8c8d;
+  font-size: 2.2rem;
+  font-weight: 400;
+  position: absolute;
+  text-transform: none;
+  z-index: 2; }
+
+.forca_normal {
+  font-weight: 100; }
+
+.bem_forte {
+  font-weight: 800; }
+
+.escrita_normal {
+  text-transform: none; }
+
+.escrita_maiuscula {
+  text-transform: uppercase; }
+
+/* Formato da imagem */
+.form_quadrado {
+  width: 800px;
+  height: 800px; }
+
+img.form_quadrado {
+  max-width: 98%;
+  height: auto; }
+
+.form_retangular {
+  width: 800px;
+  height: 300px; }
+
+img.form_retangular {
+  max-width: 98%;
+  height: auto; }
+  @media (min-width: 600px) {
+    img.form_retangular {
+      max-width: 500px; } }
+
+/* Adiciona borda ├á imagem */
+.borda_sem {
+  border: none; }
+
+.borda_com {
+  border: 1px solid #bdc3c7;
+  padding: 2px 2px; }
+
+.borda_com_escura {
+  border: 1px solid #34495e; }
+
+/* Alinha texto da imagem */
+.alinhamento_esquerda {
+  text-align: left; }
+
+.alinhamento_centralizada {
+  text-align: center; }
+
+.alinhamento_direita {
+  text-align: right; }
+
+.marca_com_borda {
+  bottom: 18px;
+  right: 22px; }
+
+.marca_sem_borda {
+  bottom: 0;
+  right: 5px; }
+
+/*Linha no meio*/
+#onde hr {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5em;
+  margin-bottom: -0.5em;
+  border: 1px solid #bdc3c7; }
+
+/*# sourceMappingURL=cv.min.css.map */

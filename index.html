@@ -33,7 +33,8 @@
     Backgrounds
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="https://fonts.googleapis.com/css?family=Space+Mono|Caveat|Oswald|Poiret+One|Bungee+Shade" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
-  <link href="https://fonts.googleapis.com/css?family=Special+Elite|Megrim|Cormorant|Amatic+SC" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite|Cormorant|Amatic+SC" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif|Wire+One|Work+Sans:100" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
   <link href="css/background.min.css" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
 </head>
 
@@ -93,13 +94,50 @@
           <h6 class="descr">Clique nos <span class="btn_menor">botões</span> para editar</h6>
 
           <div class="conf">
-            <span id="conf_font" class="opc">Fonte: <span class="escolhido oswald" id="fonte_escolhida">Oswald</span></span>
+            <span id="conf_alinhamento" class="opc">Alinhamento: <span class="escolhido" id="alinhamento_escolhido">Esquerda</span></span>
+
+              <div class="conf_opc conf_alinhamento">
+                <span class="nowrap">
+                  <input type="radio" name="alinhamento" id="alinhamento_esquerda" value="alinhamento_esquerda" checked="checked" />
+                  <label for="alinhamento_esquerda" class="alinhamento_esquerda">Esquerda</label>
+                </span>
+                
+                <span class="nowrap">
+                  <input type="radio" name="alinhamento" id="alinhamento_centralizada" value="alinhamento_centralizada" />
+                  <label for="alinhamento_centralizada" class="alinhamento_centralizada">Centralizado</label>
+                </span>
+
+                <span class="nowrap">
+                  <input type="radio" name="alinhamento" id="alinhamento_direita" value="alinhamento_direita" />
+                  <label for="alinhamento_direita" class="alinhamento_direita">Direita</label>
+                </span>
+              </div>
+          </div>  
+
+          <div class="conf">
+            <span id="conf_font" class="opc">Fonte: <span class="escolhido oswald" id="fonte_escolhida">Work Sans</span></span>
 
             <!--
             *
             * FONTES
             -->
             <div class="conf_opc conf_font">
+
+              <span class="nowrap">
+                <input type="radio" name="fonte" id="work_sans" value="work_sans"  checked="checked" />
+                <label for="work_sans" class="work_sans">Work Sans</label>
+              </span>
+
+              <span class="nowrap">
+                <input type="radio" name="fonte" id="pt_serif" value="pt_serif" />
+                <label for="pt_serif" class="pt_serif">PT Serif</label>
+              </span>
+
+              <span class="nowrap">
+                <input type="radio" name="fonte" id="wire_one" value="wire_one" />
+                <label for="wire_one" class="wire_one">Wire One</label>
+              </span>
+
               <span class="nowrap">
                 <input type="radio" name="fonte" id="space_mono" value="space_mono" />
                 <label for="space_mono" class="space_mono">Space Mono</label>
@@ -116,7 +154,7 @@
               </span>
               
               <span class="nowrap">
-                <input type="radio" name="fonte" id="oswald" value="oswald" checked="checked"/>
+                <input type="radio" name="fonte" id="oswald" value="oswald"/>
                 <label for="oswald" class="oswald">Oswald</label>
               </span>
 
@@ -128,11 +166,6 @@
               <span class="nowrap">
                 <input type="radio" name="fonte" id="special_elite" value="special_elite"/>
                 <label for="special_elite" class="special_elite">Special Elite</label>
-              </span>
-
-              <span class="nowrap">
-                <input type="radio" name="fonte" id="megrim" value="megrim"/>
-                <label for="megrim" class="megrim">Megrim</label>
               </span>
 
               <span class="nowrap">
@@ -180,7 +213,7 @@
           </div>
     
           <div class="conf">
-            <span id="conf_fundo" class="opc">Fundo: <span class="escolhido bg_nao_quero" id="fundo_escolhida">Não quero</span></span>
+            <span id="conf_fundo" class="opc">Fundo: <span class="escolhido bg_nao_quero" id="fundo_escolhida">Circles Light</span></span>
 
             <div class="conf_opc conf_fundo"  style="margin-top:5px;">
               <span class="nowrap">
@@ -189,18 +222,28 @@
               </span>
 
               <span class="nowrap">
-              <input type="radio" name="background" id="bg_small_steps" value="bg_small_steps" />
-              <label for="bg_small_steps" class="bg_small_steps bg">Small Steps</label>
+                <input type="radio" name="background" id="bg_circles_light" value="bg_circles_light" />
+                <label for="bg_circles_light" class="bg_circles_light bg">Circles Light</label>
               </span>
-              
+
+              <span class="nowrap">
+                <input type="radio" name="background" id="bg_seamless_paper_texture" value="bg_seamless_paper_texture" />
+                <label for="bg_seamless_paper_texture" class="bg_seamless_paper_texture bg">Seamless Paper</label>
+              </span>
+
+              <span class="nowrap">
+                <input type="radio" name="background" id="bg_grey_wash_wall" value="bg_grey_wash_wall" />
+                <label for="bg_grey_wash_wall" class="bg_grey_wash_wall bg">Grey Wash Wall</label>
+              </span>
+
               <span class="nowrap">
                 <input type="radio" name="background" id="bg_stardust" value="bg_stardust" />
                 <label for="bg_stardust" class="bg_stardust bg">Stardust</label>
               </span>
 
               <span class="nowrap">
-                <input type="radio" name="background" id="bg_triangular" value="bg_triangular" />
-                <label for="bg_triangular" class="bg_triangular bg">Triangular</label>
+                <input type="radio" name="background" id="bg_memphis_colorful" value="bg_memphis_colorful" />
+                <label for="bg_memphis_colorful" class="bg_memphis_colorful bg">Memphis Colorful</label>
               </span>
 
               <span class="nowrap">
@@ -218,10 +261,6 @@
                 <label for="bg_notebook" class="bg_notebook bg">Notebook</label>
               </span>
 
-              <span class="nowrap">
-                <input type="radio" name="background" id="bg_grey_floral" value="bg_grey_floral" />
-                <label for="bg_grey_floral" class="bg_grey_floral bg">Grey Floral</label>
-              </span>
             </div>
 
           </div>
@@ -312,10 +351,9 @@
           <span class="informa_msg" style="display: none"></span>
           <span id="informa_compartilha" class="informa" style="display: none"></span>
 
-          <img id="imagem_final" name="imagem_final" class="form_quadrado" />
-
           <a id="ponto_imagem" style="width: 0; height: 0"><!--Usando para rolar a página--></a>
 
+          <img id="imagem_final" name="imagem_final" class="form_quadrado" />
         </div>
         
       </div>
@@ -341,9 +379,9 @@
 
     <p>Mais algumas coisas que utilizei, junto com o código disso aqui, você consegue no <a href="https://github.com/HigorSantos/sua-mensagem">meu GitHub</a>. Pode ir lá, uso "The MIT License". :)</p>
     
-    <p style="margin:1rem 0"><em>Ah, caso você esteja usando um navegador antigo e alguma coisa saia fora do controle, peço perdão pelo vacilo!</em></p>
+    <p style="margin:1rem 0"><em>Ah, caso você esteja usando um navegador antigo e alguma coisa saia fora do controle, peço que use algo mais novo para aproveitar todo o nosso potencial!</em></p>
     
-    <p style="text-align: center">Alpha 0.52</p>
+    <p style="text-align: center">Alpha 0.6</p>
   </footer>
 
 
@@ -352,7 +390,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="js/html2canvas.min.js"></script>
-  <script src="js/cv.min.js"></script>
+  <script src="js/cv.js"></script>
 
   <script src="js/analytics.js"></script>
 

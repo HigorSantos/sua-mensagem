@@ -24,7 +24,6 @@ $cor_linhas_escuras: #34495e;
 
 #bloco {
   margin-top: 10px;
-  //padding:    0; FIXME
   vertical-align: middle;
   font-size:  $tamanho_inicia_fonte;
   position:   absolute;
@@ -41,10 +40,8 @@ $cor_linhas_escuras: #34495e;
   width:    calc(100% - 40px);
   text-decoration: none;
   color:    inherit;
-  //text-align: center; FIXME
   margin:   20px;
   cursor:   text;
-  //padding:  0; //FIXME
 
   @if $DEBUG==1 {background: #ddd}
 }
@@ -130,7 +127,7 @@ img.form_retangular {
 }
 .borda_com{
   border: 1px solid $cor_linhas;
-  padding: 2px 2px;
+  //padding: 2px 2px;
 }
 .borda_com_escura{
   border: 1px solid $cor_linhas_escuras;

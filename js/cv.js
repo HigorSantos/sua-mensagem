@@ -7,7 +7,7 @@
 	/*
 	* Define o modo de execução
 	 */
-	var modo_debug = false;
+	var modo_debug = true;
 	var modo_debub_rapido = false;
 	var modo_debug_compart = false;
 
@@ -216,7 +216,7 @@
 		}
 		
 		/* CENTRALIZA TEXTO ENTRE % */
-		/*var primeira_ocor_porcentagem = texto.indexOf("%");
+		var primeira_ocor_porcentagem = texto.indexOf("%");
 		var ultima_ocor_porcentagem = texto.lastIndexOf("%");
 		//Verifica se sendo aberto e fechado
 		if (primeira_ocor_porcentagem != ultima_ocor_porcentagem){
@@ -231,7 +231,7 @@
 
 			//Substitui texto com o editado
 			texto = texto_auxiliar;
-		}*/
+		}
 		//------------------------
 
 		//Aqui, coloco algumas coisas legais no texto

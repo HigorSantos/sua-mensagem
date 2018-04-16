@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+  <!-- Coisas básicas da página
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Imagens fantásticas com suas frases!">
+  <meta name="author" content="Higor Santos">
+  
+  <meta property="og:url"         content="https://higorsantos.github.io/sua-mensagem" />
+  <meta property="og:title"       content="Sua Mensagem Fantástica"/>
+  <meta property="og:type"        content="website"/>
+  <meta property="og:image"       content="https://higorsantos.github.io/sua-mensagem/img/fotolindona.jpg"/>
+  <meta property="og:description" content="Imagens fantásticas com suas frases!"/>
+
+  <title>Sua Mensagem Fantástica</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" >
+
+  <!-- Definição para mobile
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/cv.min.css">
+
+  <!--O truque abaixo é para o html não esperar o conteúdo css ser baixado para terminar de carregar
+    Fontes fantásticas
+    Backgrounds
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono|Caveat|Oswald|Poiret+One|Bungee+Shade" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite|Cormorant|Amatic+SC" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif|Wire+One|Work+Sans:100" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
+  <link href="css/background.min.css" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
+</head>
+
+<body>
+
+  <!-- #1
+  Blocos usados para gerar o texto estilizado
+  que posteriormente gerará a imagem.
+  Tudo isso por padrão fica escondido!
+  -->
+
+  <div id="bloco" class="space_mono forca_normal escrita_maiuscula form_quadrado">
+    <span id="marca" class="space_mono marca_sem_borda">bit.ly/suamensagem</span>
+    <a id="casulo" href="#"><span id="onde"></span></a>
+  </div>
+
+  <img id="imagem_final" name="imagem_final" class="form_quadrado" />
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="js/html2canvas.min.js"></script>
+  <script src="js/cv_api.js"></script>
+
+  <script src="js/analytics.js"></script>
+
+</body>
+</html>

@@ -7,7 +7,7 @@
 	/*
 	* Define o modo de execução
 	 */
-	var modo_debug = true;
+	var modo_debug = false;
 	var modo_debub_rapido = false;
 	var modo_debug_compart = false;
 

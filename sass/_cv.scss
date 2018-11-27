@@ -13,11 +13,12 @@ $cor_marca: #7f8c8d;
 $tamanho_inicia_fonte: 120px;
 $background_inverte: #000;
 $color_inverte: #fff;
-$largura_maxima: 800px;
+$largura_maxima: 512px;
 $tamanho_imagem_final: $largura_maxima;
 $altura_maxima: $largura_maxima;
-$altura_retangular: 300px;
+$altura_retangular: 200px;
 $cor_linhas: #7f8c8d;
+$cor_linhas_borda: #648199;
 $cor_linhas_escuras: #34495e;
 
 @import "classe_fonte";
@@ -126,11 +127,16 @@ img.form_retangular {
   border: none;
 }
 .borda_com{
-  border: 1px solid $cor_linhas;
+  border: 1px solid $cor_linhas_borda;
   //padding: 2px 2px;
 }
 .borda_com_escura{
   border: 1px solid $cor_linhas_escuras;
+}
+
+.borda_com_esquerda{
+  border:0;
+  border-left: 1px solid $cor_linhas_borda;
 }
 
 /* Alinha texto da imagem */
@@ -158,7 +164,7 @@ img.form_retangular {
 //Posiciona a marca de maneira diferenciada
 //quando tiver bordar
 .marca_com_borda{
-  bottom: 18px;
+  bottom: 20px;
   right:  24px;
 }
 .marca_sem_borda{

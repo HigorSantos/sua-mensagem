@@ -60,7 +60,7 @@
     	canvas_url_data = "",
     	nome_arquivo 	= "imagem_fantastica.png" ,
 		fntSz 			= 120,
-		mm_contador		= 180,
+		mm_contador		= 220,
 		span_contator	= $("#contador"),
 		span_carregando	= $("<span/>").append($("<em/>").text("Carregando...")).css("display","none"),
 		contador_erro	= 0,
@@ -352,6 +352,8 @@
 
 				//Mostra mensagem
 				$("#informa_borda").fadeIn().delay(8000).slideUp();
+			}else if(classe_borda=="borda_com"){
+				adiciona_classes_especial($("#marca"),"space_mono marca_com_borda;");
 			}else{
 				adiciona_classes_especial($("#marca"),"space_mono marca_sem_borda");
 			}

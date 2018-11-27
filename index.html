@@ -30,11 +30,10 @@
 
   <!--O truque abaixo é para o html não esperar o conteúdo css ser baixado para terminar de carregar
     Fontes fantásticas
-    Backgrounds
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="https://fonts.googleapis.com/css?family=Space+Mono|Caveat|Oswald|Poiret+One|Bungee+Shade" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
-  <link href="https://fonts.googleapis.com/css?family=Special+Elite|Cormorant|Amatic+SC" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
-  <link href="https://fonts.googleapis.com/css?family=PT+Serif|Wire+One|Work+Sans:100" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
+  <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Special+Elite|Cormorant|Amatic+SC" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
+  <link href="https://fonts.googleapis.com/css?family=Vast+Shadow|Bungee|Work+Sans:100|Cabin+Sketch" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
   <link href="css/background.min.css" rel="stylesheet" media="none" onload="if(media!='all') media='all'">
 </head>
 
@@ -78,11 +77,12 @@
             <span class="exemplo">:) <span style="font-size:1.5em">&#9786;</span></span>
             <span class="exemplo">:( &#9785;</span>
             <p>O que estiver entre # (cerquila) <span class="inverte">#é destacado#</span></p>
-            <p>E olha esses exemplo =D</em></p>
+            <p>Ah, e se tiver alinhando a esquerda ou direita e quiser centralizar só uma parte do texto, basta colocar entre %.</p>
+            <!--<p>E olha esses exemplo =D</em></p>
             <p>
               <img class="img_ex1 img_ex" />
               <img class="img_ex2 img_ex" />
-            </p>
+            </p>-->
           </div>
        
         </div>
@@ -129,16 +129,6 @@
               </span>
 
               <span class="nowrap">
-                <input type="radio" name="fonte" id="pt_serif" value="pt_serif" />
-                <label for="pt_serif" class="pt_serif">PT Serif</label>
-              </span>
-
-              <span class="nowrap">
-                <input type="radio" name="fonte" id="wire_one" value="wire_one" />
-                <label for="wire_one" class="wire_one">Wire One</label>
-              </span>
-
-              <span class="nowrap">
                 <input type="radio" name="fonte" id="space_mono" value="space_mono" />
                 <label for="space_mono" class="space_mono">Space Mono</label>
               </span>
@@ -177,6 +167,27 @@
                 <input type="radio" name="fonte" id="amatic_sc" value="amatic_sc"/>
                 <label for="amatic_sc" class="amatic_sc">Amatic SC</label>
               </span>
+
+              <span class="nowrap">
+                <input type="radio" name="fonte" id="cabin_sketch" value="cabin_sketch"/>
+                <label for="cabin_sketch" class="cabin_sketch">Cabin Sketch</label>
+              </span>
+
+              <span class="nowrap">
+                <input type="radio" name="fonte" id="fredericka" value="fredericka"/>
+                <label for="fredericka" class="fredericka">Fredericka the Great</label>
+              </span>
+
+              <span class="nowrap">
+                <input type="radio" name="fonte" id="vast_shadow" value="vast_shadow"/>
+                <label for="vast_shadow" class="vast_shadow">Vast Shadow</label>
+              </span>
+
+              <span class="nowrap">
+                <input type="radio" name="fonte" id="bungee" value="bungee"/>
+                <label for="bungee" class="bungee">Bungee</label>
+              </span>
+
             </div>
 
           </div>
@@ -232,11 +243,6 @@
               </span>
 
               <span class="nowrap">
-                <input type="radio" name="background" id="bg_grey_wash_wall" value="bg_grey_wash_wall" />
-                <label for="bg_grey_wash_wall" class="bg_grey_wash_wall bg">Grey Wash Wall</label>
-              </span>
-
-              <span class="nowrap">
                 <input type="radio" name="background" id="bg_stardust" value="bg_stardust" />
                 <label for="bg_stardust" class="bg_stardust bg">Stardust</label>
               </span>
@@ -261,6 +267,41 @@
                 <label for="bg_notebook" class="bg_notebook bg">Notebook</label>
               </span>
 
+              <span class="nowrap">
+                <input type="radio" name="background" id="bg_christmas_black" value="bg_christmas_black" />
+                <label for="bg_christmas_black" class="bg_christmas_black bg">Natal Escuro</label>
+              </span>
+
+              <span class="nowrap">
+                <input type="radio" name="background" id="bg_christmas_colour" value="bg_christmas_colour" />
+                <label for="bg_christmas_colour" class="bg_christmas_colour bg">Natal Colorido</label>
+              </span>
+
+              <span class="nowrap">
+                <input type="radio" name="background" id="bg_doodles" value="bg_doodles" />
+                <label for="bg_doodles" class="bg_doodles bg">Doodles</label>
+              </span>
+
+              <span class="nowrap">
+                <input type="radio" name="background" id="bg_food" value="bg_food" />
+                <label for="bg_food" class="bg_food bg">Comida</label>
+              </span>
+
+              <span class="nowrap">
+                <input type="radio" name="background" id="bg_restaurant_icons" value="bg_restaurant_icons" />
+                <label for="bg_restaurant_icons" class="bg_restaurant_icons bg">Restaurante</label>
+              </span>
+
+              <span class="nowrap">
+                <input type="radio" name="background" id="bg_sakura" value="bg_sakura" />
+                <label for="bg_sakura" class="bg_sakura bg">Sakura</label>
+              </span>
+
+              <span class="nowrap">
+                <input type="radio" name="background" id="bg_wheat" value="bg_wheat" />
+                <label for="bg_wheat" class="bg_wheat bg">Wheat</label>
+              </span>
+
             </div>
 
           </div>
@@ -280,6 +321,12 @@
               <label for="borda_com" class="borda_com">Com borda</label>
               <span id="informa_borda" class="informa" style="display: none">A borda fica muito boa com um dos fundos escuros! ;)</span>
             </span>
+
+            <!--<span class="nowrap">
+              <input type="radio" name="borda" id="borda_com_esquerda" value="borda_com_esquerda"/>
+              <label for="borda_com_esquerda" class="borda_com_esquerda">Borda Esqueda</label>
+            </span>-->
+
           </div> 
         </div>
 
@@ -386,7 +433,6 @@
 
 
 </script>
-
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="js/html2canvas.min.js"></script>

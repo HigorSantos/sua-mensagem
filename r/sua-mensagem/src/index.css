@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.45em;
+  font-family: "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h6 {
+  margin: 0.5rem 0 0.2rem 0;
+}
+
+h1 {
+  white-space: nowrap;
+}
+
+h6.descr{
+  font-size: 1.8rem;
+}
+
+label{
+  display: inline;
+}
+
+input[type=radio] {
+  margin-left: 0.5rem;
+  margin-right: 0.1rem;
+}
+
+div.row {
+  margin: 0.5rem 0;
+}
+
+/*-----------------------*/
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

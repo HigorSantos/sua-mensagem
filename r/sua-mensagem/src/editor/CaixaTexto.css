@@ -1,0 +1,44 @@
+div .caixa-texto{
+	position: relative;
+}
+
+#coisas_legais {
+  display: none;
+  color: #000;
+  background: #ECEFF1;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+#coisas_legais p {
+    margin: 0;
+}
+
+#coisas_legais .exemplo{
+	padding:  3px 5px;
+	background: #CFD8DC;
+}
+
+#contador {
+  position: absolute;
+  text-transform: none;
+  bottom: 20px;
+  border-radius: 4px;
+  background: #ECEFF1;
+  padding: .4rem;
+  font-size: .7em;
+}
+
+h6{
+	margin-top: 15px;
+}
+
+span .menor{
+	font-size:1.4em;
+}
+
+textarea {
+  margin-top: 10px;
+  height: 100px;
+}

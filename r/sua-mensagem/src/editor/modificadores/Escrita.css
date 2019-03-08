@@ -1,0 +1,7 @@
+.escrita_normal {
+  text-transform: none;
+}
+
+.escrita_maiuscula {
+  text-transform: uppercase;
+}

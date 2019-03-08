@@ -1,0 +1,38 @@
+.conf{
+  margin-top: 10px; 
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  padding: 10px;
+  display: inline-block;
+}
+
+.btn_menor{
+  margin-top: 10px; 
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 1px 4px;
+}
+
+.opc{
+  cursor: pointer;
+  padding: .4rem;
+}
+
+.conf_opc{
+  display: none;
+}
+
+.opc{
+  cursor: pointer;
+  padding: .4rem;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.escolhido{
+  background: #ECEFF1;
+  padding: 2px 4px;
+  text-transform: none;
+  border-radius: 4px;
+}

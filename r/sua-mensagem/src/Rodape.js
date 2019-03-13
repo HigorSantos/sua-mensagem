@@ -23,7 +23,7 @@ class Rodape extends Component {
 			    <p>Mais algumas coisas que utilizei, junto com o código disso aqui, você consegue no <a href="https://github.com/HigorSantos/sua-mensagem">meu GitHub</a>. Pode ir lá, uso "The MIT License". :)</p>
 			    <p><em>Ah, caso você esteja usando um navegador antigo e alguma coisa saia fora do controle, peço que use algo mais novo para aproveitar todo o nosso potencial. =D</em></p>
 			    
-			    <pre>Sua Mensage - Alpha r0.1</pre>
+			    <pre>Sua Mensagem - Alpha r0.1</pre>
 			</footer>
 		);
 	}

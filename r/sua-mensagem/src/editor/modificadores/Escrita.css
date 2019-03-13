@@ -5,3 +5,7 @@
 .escrita_maiuscula {
   text-transform: uppercase;
 }
+
+.escrita_capitalize {
+  text-transform:capitalize;
+}

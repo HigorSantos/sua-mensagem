@@ -1,52 +1,48 @@
 import React, { Component } from 'react';
 import './Forca.css';
-import Opcao from './Opcao';
+import Conf from './Conf';
 
 class Forca extends Component {
 	constructor(props){
 	    super(props);
 		this.state = {
-			nome: 'Forca',
 			value:'forca',
 			opcoes:[
-				{	nome:'Texto Normal',
+				{	nome:'Normal',
 					value:'forca_normal', 
 					defaultChecked:true,
 					enabled:true,
 				},
-				{	nome:'Texto em Negrito',
+
+				{	nome:'Forte',
+					value:'so_forte', 
+					defaultChecked:false,
+					enabled:true,
+				},
+				{	nome:'Bem Forte',
 					value:'bem_forte', 
 					defaultChecked:false,
 					enabled:true,
 				},
 			],
-			padrao:null
+			selecionado:null
     	};
-    	this.state.padrao=this.state.opcoes[0];
-	}
-
-	renderOpcoes(){
-		return this.state.opcoes.map(opc => (!opc.enabled) ? <span/> :
-			<Opcao key={opc.value} value={opc} modificador={this.state.value}/>
-		)
+    	this.state.selecionado = this.state.opcoes[0];
+    	for(let i=0; i < this.state.opcoes.length; i++){
+    		if(this.state.opcoes[i].defaultChecked){
+				this.state.selecionado = this.state.opcoes[i];
+				break;
+    		}
+    	}
 	}
 
 	render(){
-		if(this.props.enabled==="true"){
-			return(
-				<div class="conf">
-					<span id={'conf_'+this.state.value} class="opc">
-						{this.state.nome}:
-						<span class={'escolhido '+this.state.padrao.value} id={this.state.value+'_escolhido'}>{this.state.padrao.nome}</span>
-					</span>
-					<div class={'conf_opc conf_'+this.state.value}>
-						{this.renderOpcoes()}
-					</div>
-				</div>
-			);
-		}else{
-			return(<div/>);
-		}
+		return(
+			<Conf 
+				modificador={this.state}
+				enabled={this.props.enabled}
+			/>
+		);
 	}
 }
 

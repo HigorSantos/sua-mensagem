@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './Borda.css';
-import Opcao from './Opcao';
+import Conf from './Conf';
 
 class Borda extends Component {
 	constructor(props){
 	    super(props);
 		this.state = {
-			nome: 'Borda',
 			value:'borda',
 			opcoes:[
 				{	nome:'Com Borda',
@@ -20,33 +19,24 @@ class Borda extends Component {
 					enabled:true,
 				},
 			],
-			padrao:null
+			selecionado:null
     	};
-    	this.state.padrao=this.state.opcoes[0];
-	}
-
-	renderOpcoes(){
-		return this.state.opcoes.map(opc => (!opc.enabled) ? <span/> :
-			<Opcao key={opc.value} value={opc} modificador={this.state.value}/>
-		)
-	}
+    	this.state.selecionado = this.state.opcoes[0];
+    	for(let i=0; i < this.state.opcoes.length; i++){
+    		if(this.state.opcoes[i].defaultChecked){
+				this.state.selecionado = this.state.opcoes[i];
+				break;
+    		}
+    	}
+    }
 
 	render(){
-		if(this.props.enabled==="true"){
-			return(
-				<div class="conf">
-					<span id={'conf_'+this.state.value} class="opc">
-						{this.state.nome}:
-						<span class={'escolhido '+this.state.padrao.value} id={this.state.value+'_escolhido'}>{this.state.padrao.nome}</span>
-					</span>
-					<div class={'conf_opc conf_'+this.state.value}>
-						{this.renderOpcoes()}
-					</div>
-				</div>
-			);
-		}else{
-			return(<div/>);
-		}
+		return(
+			<Conf 
+				modificador={this.state}
+				enabled={this.props.enabled}
+			/>
+		);
 	}
 }
 

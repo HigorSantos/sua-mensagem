@@ -19,12 +19,12 @@ h1 {
   white-space: nowrap;
 }
 
-h6.descr{
-  font-size: 1.8rem;
-}
-
 label{
-  display: inline;
+  display: inline-block;
+}
+.l{
+  padding: 5px;
+  background: #ccc;
 }
 
 input[type=radio] {
@@ -35,6 +35,7 @@ input[type=radio] {
 div.row {
   margin: 0.5rem 0;
 }
+
 
 /*-----------------------*/
 code {

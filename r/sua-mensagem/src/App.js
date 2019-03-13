@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Topo from './Topo';
 import Rodape from './Rodape';
 import Editor from './Editor';

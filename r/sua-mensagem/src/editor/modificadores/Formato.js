@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
+import './Formato.css';
 import Conf from './Conf';
 
-class Alinhamento extends Component {
+class Formato extends Component {
 	constructor(props){
 	    super(props);
 		this.state = {
-			value:'alinhamento',
+			value:'formato',
 			opcoes:[
-				{	nome:'Esquerda',
-					value:'alinhamento_esquerda', 
+				{	nome:'Quadrado',
+					value:'form_quadrado', 
 					defaultChecked:true,
 					enabled:true,
 				},
-				{	nome:'Centralizado',
-					value:'alinhamento_centralizada', 
+				{	nome:'Retangular',
+					value:'form_retangular', 
 					defaultChecked:false,
 					enabled:true,
 				},
-				{	nome:'Direita',
-					value:'alinhamento_direita', 
+				{	nome:'Vertical',
+					value:'form_vertical', 
 					defaultChecked:false,
 					enabled:true,
 				},
@@ -44,4 +45,4 @@ class Alinhamento extends Component {
 	}
 }
 
-export default Alinhamento;
+export default Formato;

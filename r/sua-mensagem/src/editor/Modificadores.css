@@ -1,9 +1,17 @@
 .conf{
+  background: #acc1d230;
   margin-top: 10px; 
+  margin-right: 4px;
   border: 1px solid #bdc3c7;
+  border-left: 4px solid #587277;
   border-radius: 4px;
   padding: 10px;
   display: inline-block;
+}
+
+.btn_menor.modificador{
+  background: #acc1d230;
+  border-left: 4px solid #587277;
 }
 
 .btn_menor{
@@ -21,6 +29,12 @@
 
 .conf_opc{
   display: none;
+  margin-top: 8px;
+}
+
+.conf_opc_aberto{
+  display: block;
+  margin-top: 8px;
 }
 
 .opc{
@@ -34,5 +48,34 @@
   background: #ECEFF1;
   padding: 2px 4px;
   text-transform: none;
-  border-radius: 4px;
+  border-radius: 2px;
+  margin-left:4px;
+  border: 1px solid #ff793f;
+}
+
+.modificador{
+  text-transform: uppercase;
+  font-weight:400;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
+
+.selecao{
+  margin: 0 5px;
+  display: inline-block;
+}
+
+.selecao input:focus + label {
+  outline: 2px dotted #ff793f;
+}
+
+.selecao input:checked + label {
+  outline: 4px solid #ff793f;
+}
+.selecao label{
+  cursor: pointer;
+  padding: 2px 4px;
+}
+.selecao input[type=radio] {
+    display: contents;
 }

@@ -79,3 +79,36 @@
 .selecao input[type=radio] {
     display: contents;
 }
+
+/*
+
+*/
+
+#bloco {
+  margin-top: 10px;
+  vertical-align: middle;
+  font-size:  120px;
+  position:   absolute;
+  overflow:   hidden;
+
+}
+
+#bloco a {
+  display:  block;
+  /*height:   calc(100% - 40px);
+  width:    calc(100% - 40px);*/
+  text-decoration: none;
+  color:    inherit;
+  margin:   20px;
+  cursor:   text;
+}
+
+#onde {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 20px 10px;
+  position: relative;
+  line-height: 1.2;
+  z-index: 1;
+  height: 100%;
+}

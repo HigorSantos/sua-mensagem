@@ -12,7 +12,8 @@ function Opcao(props) {
 				name={modificador} 
 				id={opc.value} 
 				value={opc.value} 
-				defaultChecked={opc.defaultChecked} />
+				defaultChecked={opc.defaultChecked} 
+				onClick={()=> props.onClick()}/>
 			<label htmlFor={opc.value} class={opc.value}>{opc.nome}</label>
 		</span>
 	);

@@ -1,0 +1,22 @@
+.alinhamento_esquerda{
+  text-align: left;
+}
+.alinhamento_esquerda #onde{
+  padding-left:30px;
+  padding-right:30px;
+}
+
+.alinhamento_centralizada{
+  text-align: center;
+}
+.alinhamento_centralizada #onde{
+  padding: 20px 10px;
+}
+
+.alinhamento_direita{
+  text-align: right;
+}
+.alinhamento_direita #onde{
+  padding-left:30px;
+  padding-right:30px;
+}

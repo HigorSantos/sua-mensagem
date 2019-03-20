@@ -1,6 +1,7 @@
 import React from 'react';
 import CaixaTexto from './editor/CaixaTexto';
 import Modificadores from './editor/Modificadores';
+import Gerador from './gerador/Gerador';
 
 function Editor() {
 	return (
@@ -11,6 +12,8 @@ function Editor() {
 			    	<Modificadores />
 			    </div>
 			</div>
+
+			<Gerador />
 		</div>
 	);
 }

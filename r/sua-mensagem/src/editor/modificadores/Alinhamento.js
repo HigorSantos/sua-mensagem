@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Alinhamento.css';
 import Conf from './Conf';
 
 class Alinhamento extends Component {

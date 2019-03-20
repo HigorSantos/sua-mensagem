@@ -87,20 +87,20 @@
 #bloco {
   margin-top: 10px;
   vertical-align: middle;
-  font-size:  120px;
   position:   absolute;
   overflow:   hidden;
 
 }
 
-#bloco a {
+#casulo {
   display:  block;
-  /*height:   calc(100% - 40px);
-  width:    calc(100% - 40px);*/
+  width: 472px;
+  height: 472px;
   text-decoration: none;
   color:    inherit;
   margin:   20px;
   cursor:   text;
+  font-size: 120px;
 }
 
 #onde {
@@ -111,4 +111,5 @@
   line-height: 1.2;
   z-index: 1;
   height: 100%;
+  font-size: 120px;
 }

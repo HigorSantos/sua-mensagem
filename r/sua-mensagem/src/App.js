@@ -9,6 +9,7 @@ class App extends Component {
       <div className="App">
         <Topo />
         <Editor />
+        
         <Rodape />
       </div>
     );

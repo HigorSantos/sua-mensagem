@@ -28,7 +28,9 @@ class Escrita extends Component {
     	};
     	this.state.selecionado = this.state.opcoes[0];
     	for(let i=0; i < this.state.opcoes.length; i++){
-    		if(this.state.opcoes[i].defaultChecked){
+    		this.state.opcoes[i].defaultChecked = false;
+    		if(props.padrao===this.state.opcoes[i].value){
+    			this.state.opcoes[i].defaultChecked = true;
 				this.state.selecionado = this.state.opcoes[i];
 				break;
     		}
@@ -40,6 +42,7 @@ class Escrita extends Component {
 			<Conf 
 				modificador={this.state}
 				enabled={this.props.enabled}
+				atualizaEstilos={this.props.atualizaEstilos}
 			/>
 		);
 	}

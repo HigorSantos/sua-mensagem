@@ -87,29 +87,29 @@
 #bloco {
   margin-top: 10px;
   vertical-align: middle;
-  position:   absolute;
   overflow:   hidden;
+  /*position:   absolute;*/
 
 }
 
 #casulo {
   display:  block;
-  width: 472px;
-  height: 472px;
   text-decoration: none;
   color:    inherit;
   margin:   20px;
   cursor:   text;
   font-size: 120px;
+ background-color: #ff793f/*TESTE*/
 }
 
 #onde {
-  display: table-cell;
-  vertical-align: middle;
-  padding: 20px 10px;
+  /*display: table-cell;
+  vertical-align: middle;*/
+  padding: 0 10px;
   position: relative;
   line-height: 1.2;
   z-index: 1;
   height: 100%;
   font-size: 120px;
+  background-color: #ccc/*TESTE*/
 }

@@ -15,13 +15,27 @@ class Modificadores extends Component {
 			<div class="row">
 				<h6 class="descr">Clique nas <span class="btn_menor modificador">propriedades</span> para editar</h6>
 				<div class="row">
-					<Forca enabled="true"/>
-					<Escrita enabled="true"/>
-					<Fundo enabled="true"/>
-					<Alinhamento enabled="true"/>
-					<Fonte enabled="true"/>
-					<Borda enabled="true"/>
-					<Formato enabled="true"/>
+					<Alinhamento enabled="true"
+							padrao={this.props.padrao.alinhamento}
+							atualizaEstilos={this.props.atualizaEstilos}/>
+					<Escrita enabled="true"
+							padrao={this.props.padrao.escrita}
+							atualizaEstilos={this.props.atualizaEstilos}/>
+					<Forca enabled="true"
+							padrao={this.props.padrao.forca}
+							atualizaEstilos={this.props.atualizaEstilos}/>
+					<Fundo enabled="true"
+							padrao={this.props.padrao.fundo}
+							atualizaEstilos={this.props.atualizaEstilos}/>
+					<Fonte enabled="true"
+							padrao={this.props.padrao.fonte}
+							atualizaEstilos={this.props.atualizaEstilos}/>
+				{/*<Borda enabled="true"
+							padrao={this.props.padrao.borda}
+							atualizaEstilos={this.props.atualizaEstilos}/>*/}
+					<Formato enabled="true"
+							padrao={this.props.padrao.formato}
+							atualizaEstilos={this.props.atualizaEstilos}/>
 				</div>
 	        </div>
 		);

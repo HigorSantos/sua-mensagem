@@ -28,6 +28,8 @@ class Conf extends Component{
 		selecionado = opc;
 		
 		this.setState({selecionado});
+		const mod = this.props.modificador.value;
+		this.props.atualizaEstilos(mod,selecionado.value);
 	}
 
 	renderOpcoes(){

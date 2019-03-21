@@ -6,24 +6,30 @@ class Gerador extends Component {
 	    super(props);
 		this.state = {
 			dados:{
-				externo:{
-					fontSize:'120px',
-				},
 				interno:{
 					top:0,
-					left:0,
-					fontSize:'120px',
+					/*left:0,*/
+					fontSize:'',
 				},
 				texto:'',
-			}
+			},
+			configuracao:{
+				tamanhoPadraoFonte:120,
+			},
     	};
-
+    	this.state.dados.interno.fontSize = this.state.configuracao.tamanhoPadraoFonte+'px';
+    	this.state.dados.texto = props.texto;
     	this.gerarImagem = this.gerarImagem.bind(this);
+
 	}
 
 	gerarImagem(){
+		const texto = this.props.texto;
+		if(!texto) return;
+
 		let newState = Object.assign({}, this.state);
-		const d = geraClasse();
+		const d = formataElementos(texto, this.state.configuracao.tamanhoPadraoFonte);
+
 		if(d){
 			newState.dados = d;
 			this.setState(newState);
@@ -31,9 +37,8 @@ class Gerador extends Component {
 	}
 
 	render(){
-		const dados = this.state.dados;
-		const estiloInterno = dados.interno;
-
+		const texto = this.state.dados.texto;// ? this.state.dados.texto : this.props.texto;
+		//console.log(texto);
 		return (
 			<div className="Gerador">
 		        <div class="row">
@@ -41,27 +46,24 @@ class Gerador extends Component {
 		        </div>
 
 				<div class="row" >
-		          <div id="bloco" class="escrita_maiuscula forca_normal work_sans bg_stardust form_quadrado alinhamento_esquerda">
+		          <div id="bloco" class={this.props.estilosSelecionados}>
 		            {/*<span id="marca" class="space_mono marca_sem_borda">bit.ly/suamensagem</span>-->*/}
 		            <a id="casulo">
-			            <span id="onde" style={estiloInterno}>
-			            	{this.state.dados.texto}
+			            <span id="onde" style={this.state.dados.interno}>
+			            	{texto}
 			            </span>
 		            </a>
 		          </div>
-		          <div id="bloco2"/>
 		        </div>
 	        </div>
 		);
 	}
 }
 
-function geraClasse(){
+function formataElementos(texto,tamanhoFonte){
 
-
-	let ft = new ClassFormataTexto(512, 512,{}, 120, true);
-
-	return ft.scaleText("Lorem ipsum dolor sit amet", "casulo","onde");
+	let ft = new ClassFormataTexto(tamanhoFonte, true);
+	return ft.scaleText(texto, "bloco", "casulo","onde");
 }
 
 export default Gerador;

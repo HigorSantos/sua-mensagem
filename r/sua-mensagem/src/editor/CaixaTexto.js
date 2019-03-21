@@ -34,6 +34,8 @@ class CaixaTexto extends Component {
 		texto = t;
 		contador = texto.length;
 		this.setState({texto, contador})
+
+		this.props.atualizaTexto(texto);
 	}
 	render() {
 		const contador = this.state.contador+'';
